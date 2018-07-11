@@ -4,19 +4,16 @@ import FlexyRow from '../FlexyRow';
 class FlexyTableBody extends PureComponent {
   state = {
     scrollLeft: 0,
-    rowBeingScrolled: null,
-    isScrolling: false,
+    rowBeingScrolled: null
   };
 
-  handleScrollEvent = ({ isScrollingOnSameRow, rowBeingScrolled, scrollLeft, isScrolling }, scrollEventCallback) => {
+  handleScrollEvent = ({ isScrollingOnSameRow, rowBeingScrolled, scrollLeft }, scrollEventCallback) => {
     scrollEventCallback();
 
-    console.log(isScrolling);
-
     if (isScrollingOnSameRow) {
-      this.setState({ scrollLeft, isScrolling });
+      this.setState({ scrollLeft });
     } else {
-      this.setState({ rowBeingScrolled, scrollLeft, isScrolling });
+      this.setState({ rowBeingScrolled, scrollLeft });
     }
   };
 

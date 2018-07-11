@@ -1,21 +1,11 @@
-.scrollableSection {
+.scrollAreaWrapper {
   flex: 1 1 auto;
-  display: flex;
-  overflow-x: auto;
-  width: 0;
 }
 
-.scrollableSectionHidden {
-  flex: 1 1 auto;
+.scrollableSection {
   display: flex;
-  overflow-x: hidden;
-  width: 0;
 }
 
 .scrollableSection .flexyColumn {
-  flex: 0 0 120px;
-}
-
-.scrollableSectionHidden .flexyColumn {
   flex: 0 0 120px;
 }

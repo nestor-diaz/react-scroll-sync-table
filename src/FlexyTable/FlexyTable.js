@@ -69,8 +69,7 @@ const columns = [{
   name: 'test-coverage-9',
   title: 'Test Coverage',
   link: '',
-  width: '120px',
-  stickyAlign: 'rigth'
+  width: '120px'
 }, {
   name: 'test-coverage-6',
   title: 'Test Coverage',
@@ -88,6 +87,18 @@ const rows = [{
   isSticky: false
 }, {
   name: 'amf',
+  isSticky: false
+}, {
+  name: 'exchange-1',
+  isSticky: false
+}, {
+  name: 'amf-1',
+  isSticky: false
+}, {
+  name: 'exchange-2',
+  isSticky: false
+}, {
+  name: 'amf-2',
   isSticky: false
 }];
 

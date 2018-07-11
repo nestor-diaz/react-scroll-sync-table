@@ -20,8 +20,12 @@ class FlexyRow extends PureComponent {
 
   render() {
     const rowClasses = this.props.isSticky ? 'flexyRow sticky' : 'flexyRow';
-    const { rowId, rowBeingScrolled, scrollLeft, onScroll } = this.props;
-    const hideScrollbars = rowBeingScrolled !== null && rowBeingScrolled !== rowId;
+    const {
+      rowId,
+      rowBeingScrolled,
+      scrollLeft,
+      onScroll
+    } = this.props;
 
     return (
       <div className={rowClasses}>
@@ -29,7 +33,7 @@ class FlexyRow extends PureComponent {
         <ScrollableSection
           rowId={rowId}
           columns={this.scrollableSection}
-          hideScrollbars={hideScrollbars}
+          rowBeingScrolled={rowBeingScrolled}
           scrollLeft={scrollLeft}
           onScroll={onScroll}
         />
