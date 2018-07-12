@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import ScrollSyncTableCell from '../../ScrollSyncCell';
-import { LeftStickySection, RightStickySection, ScrollableSection } from './Sections';
+import LeftStickySection from './Sections/LeftStickySection';
+import RightStickySection from './Sections/RightStickySection';
+import ScrollableSection from './Sections/ScrollableSection';
 import './ScrollSyncRow.css';
 
 class ScrollSyncRow extends PureComponent {
