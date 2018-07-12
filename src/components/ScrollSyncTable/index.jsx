@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
-import ScrollSyncBody from './ScrollSyncBody';
-import ScrollSyncColumns from './ScrollSyncColumns';
-import ScrollSyncRows from './ScrollSyncRows';
+import ScrollSyncBody from '../ScrollSyncBody';
+import ScrollSyncColumns from '../ScrollSyncColumns';
+import ScrollSyncRows from '../ScrollSyncRows';
 import './ScrollSyncTable.css';
 
 class ScrollSyncTable extends PureComponent {
