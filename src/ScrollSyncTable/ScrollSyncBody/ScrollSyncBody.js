@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import ScrollSyncRow from '../ScrollSyncRows/ScrollSyncRow';
 
 class ScrollSyncBody extends PureComponent {
   state = {
@@ -16,28 +17,48 @@ class ScrollSyncBody extends PureComponent {
     }
   };
 
+  renderHeaderRow = () => {
+    const { columns, stickHeader } = this.props;
+    const { rowBeingScrolled, scrollLeft } = this.state;
+
+    return (
+      <ScrollSyncRow
+        key="header"
+        rowId={ScrollSyncRow.HEADER_ROW_ID}
+        isSticky={stickHeader}
+        onScroll={this.handleScrollEvent}
+        columns={columns}
+        rowBeingScrolled={rowBeingScrolled}
+        scrollLeft={scrollLeft}
+      />
+    );
+  };
+
   render() {
     const { rows, columns } = this.props;
     const { rowBeingScrolled, scrollLeft } = this.state;
 
-    return rows.map((row, rowIndex) =>
-      injectPropsToRow(row, {
-        key: row.props.name || rowIndex,
-        rowId: rowIndex,
-        onScroll: this.handleScrollEvent,
-        columns,
-        rowBeingScrolled,
-        scrollLeft,
-        ...row.props
-      })
+    return (
+      <div className="scrollSyncBody">
+        <span key="0">{ this.renderHeaderRow() }</span>
+        {rows.map((row, rowIndex) =>
+          injectPropsToRow(row, {
+            key: row.props.name || rowIndex,
+            rowId: (rowIndex + 1),
+            onScroll: this.handleScrollEvent,
+            columns,
+            rowBeingScrolled,
+            scrollLeft,
+            ...row.props
+          })
+        )}
+      </div>
     );
   }
 }
 
 function injectPropsToRow(row, props) {
-  return (
-    <div key={props.key}>{ React.cloneElement(row, props) }</div>
-  );
+  return (<span key={props.key}>{ React.cloneElement(row, props) }</span>);
 }
 
 export default ScrollSyncBody;

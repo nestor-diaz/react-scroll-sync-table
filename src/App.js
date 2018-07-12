@@ -22,42 +22,35 @@ class App extends Component {
     return (
       <div className={containerClass}>
         <button onClick={this.toggleFullWidthContainer}>Full Metrics Container</button>
-        <ScrollSyncTable>
+        <ScrollSyncTable stickHeader>
           <ScrollSyncColumns>
-            <ScrollSyncColumn name="a" title="" helpLink="" width="30px" stickyAlign="left" />
-            <ScrollSyncColumn name="b" title="" helpLink="" width="100px" />
-            <ScrollSyncColumn name="c" title="" helpLink="" width="100px" />
-            <ScrollSyncColumn name="d" title="" helpLink="" width="30px" stickyAlign="rigth" />
-            <ScrollSyncColumn name="e" title="" helpLink="" width="100px" />
-            <ScrollSyncColumn name="f" title="" helpLink="" width="100px" />
-            <ScrollSyncColumn name="g" title="" helpLink="" width="100px" />
-            <ScrollSyncColumn name="h" title="" helpLink="" width="100px" />
-            <ScrollSyncColumn name="i" title="" helpLink="" width="100px" />
-            <ScrollSyncColumn name="j" title="" helpLink="" width="100px" />
-            <ScrollSyncColumn name="k" title="" helpLink="" width="100px" />
-            <ScrollSyncColumn name="m" title="" helpLink="" width="100px" />
-            <ScrollSyncColumn name="n" title="" helpLink="" width="100px" />
+            <ScrollSyncColumn name="a" width="30px" stickyAlign="left">Column A</ScrollSyncColumn>
+            <ScrollSyncColumn name="b" width="100px">Column B</ScrollSyncColumn>
+            <ScrollSyncColumn name="c" width="100px">Column C</ScrollSyncColumn>
+            <ScrollSyncColumn name="d" width="100px">Column D</ScrollSyncColumn>
+            <ScrollSyncColumn name="e" width="100px">Column E</ScrollSyncColumn>
+            <ScrollSyncColumn name="f" width="30px" stickyAlign="rigth">Column F</ScrollSyncColumn>
           </ScrollSyncColumns>
           <ScrollSyncRows>
-            <ScrollSyncRow isSticky isHeader>
+            <ScrollSyncRow>
               <ScrollSyncCell column="a">Row A / Column A</ScrollSyncCell>
               <ScrollSyncCell column="b">Row A / Column B</ScrollSyncCell>
-              <ScrollSyncCell column="c">Row A / Column C</ScrollSyncCell>
               <ScrollSyncCell column="d">Row A / Column D</ScrollSyncCell>
+              <ScrollSyncCell column="f">Row A / Column F</ScrollSyncCell>
             </ScrollSyncRow>
-            <ScrollSyncRow name="b">
+            <ScrollSyncRow>
               <ScrollSyncCell column="a">Row B / Column A</ScrollSyncCell>
               <ScrollSyncCell column="b">Row B / Column B</ScrollSyncCell>
               <ScrollSyncCell column="c">Row B / Column C</ScrollSyncCell>
               <ScrollSyncCell column="d">Row B / Column D</ScrollSyncCell>
             </ScrollSyncRow>
-            <ScrollSyncRow name="c">
+            <ScrollSyncRow>
               <ScrollSyncCell column="a">Row C / Column A</ScrollSyncCell>
               <ScrollSyncCell column="b">Row C / Column B</ScrollSyncCell>
               <ScrollSyncCell column="c">Row C / Column C</ScrollSyncCell>
               <ScrollSyncCell column="d">Row C / Column D</ScrollSyncCell>
             </ScrollSyncRow>
-            <ScrollSyncRow name="d">
+            <ScrollSyncRow>
               <ScrollSyncCell column="a">Row D / Column A</ScrollSyncCell>
               <ScrollSyncCell column="b">Row D / Column B</ScrollSyncCell>
               <ScrollSyncCell column="c">Row D / Column C</ScrollSyncCell>

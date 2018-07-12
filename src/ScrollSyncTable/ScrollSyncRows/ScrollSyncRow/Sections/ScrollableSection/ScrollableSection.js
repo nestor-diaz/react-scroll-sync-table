@@ -53,7 +53,7 @@ class ScrollableSection extends PureComponent {
           onScroll={this.onScrollSection}
           ref={this.setScrollableAreaRef}
         >
-          { columns.map((column) => column) }
+          { columns.map((column) => (<div key={column.props.name}>{ column }</div>)) }
         </Scrollbars>
       </div>
     );

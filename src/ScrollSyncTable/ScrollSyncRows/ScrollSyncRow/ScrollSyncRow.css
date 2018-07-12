@@ -12,23 +12,3 @@
   top: 0;
   z-index: 1000;
 }
-
-.leftStickySection {
-  flex: 0 0 auto;
-  position: sticky;
-  left: 0;
-}
-
-.leftStickySection .scrollSyncColumn {
-  float: left;
-}
-
-.rightStickySection {
-  flex: 0 0 auto;
-  position: sticky;
-  right: 0;
-}
-
-.rightStickySection .scrollSyncColumn {
-  float: left;
-}

@@ -1,14 +1,70 @@
 import React, { PureComponent } from 'react';
-import { ScrollableSection } from './Sections';
+import ScrollSyncTableCell from '../../ScrollSyncCell';
+import { LeftStickySection, RightStickySection, ScrollableSection } from './Sections';
 import './ScrollSyncRow.css';
 
 class ScrollSyncRow extends PureComponent {
+  static HEADER_ROW_ID = 0;
+  static NOT_SPECIFY_COLUMN_VALUE = 'Not Column';
+
+  rowColumns = [];
   leftStickySection = [];
   rightStickySection = [];
   scrollableSection = [];
+  rowId = -1;
+
+  constructor(props) {
+    super(props);
+
+    this.rowId = props.rowId;
+  }
 
   componentWillMount() {
-    this.props.columns.forEach((column) => {
+    if (this.rowId === ScrollSyncRow.HEADER_ROW_ID) {
+      this.rowColumns = this.props.columns;
+      this.distribuiteColumnsPerSection();
+    } else {
+      if (this.areChildrenSyncCells()) {
+        this.rowColumns = this.setChildPerColumn();
+        this.distribuiteColumnsPerSection();
+      } else {
+        console.warn('ScrollSyncRow: all the row children must be instances of ScrollSyncCell');
+      }
+    }
+  }
+
+  areChildrenSyncCells = () => {
+    const { children } = this.props;
+    const childrenArray = React.Children.toArray(children);
+
+    return childrenArray.some((child) => (child.type === ScrollSyncTableCell));
+  };
+
+  replaceColumnChildren = (column, index) => {
+    const { children } = this.props;
+    const columnName = column.props.name;
+    const scrollSyncCells = React.Children.toArray(children);
+    const scrollSyncCellMatchingColumn = scrollSyncCells.find((cell) => (cell.props.column === columnName));
+    const scrollSyncCellMatchingColumnChildren = scrollSyncCellMatchingColumn ? scrollSyncCellMatchingColumn.props.children : '';
+
+    return React.cloneElement(column, { children: scrollSyncCellMatchingColumnChildren });
+  }
+
+  setChildPerColumn() {
+    const { children, columns } = this.props;
+    let rowColumns = [];
+
+    if (children && React.Children.count(children) > 0) {
+      rowColumns = columns.map(this.replaceColumnChildren);
+    } else {
+      console.warn('ScrollSyncRow: no ScrollSyncCells were specified as row children');
+    }
+
+    return rowColumns;
+  }
+
+  distribuiteColumnsPerSection() {
+    this.rowColumns.forEach((column) => {
       switch (column.props.stickyAlign) {
         case 'left': this.leftStickySection.push(column); break;
         case 'rigth': this.rightStickySection.push(column); break;
@@ -20,7 +76,6 @@ class ScrollSyncRow extends PureComponent {
   render() {
     const {
       rowId,
-      isHeader,
       isSticky,
       rowBeingScrolled,
       scrollLeft,
@@ -31,7 +86,7 @@ class ScrollSyncRow extends PureComponent {
 
     return (
       <div className={rowClasses}>
-        <div className="leftStickySection">{ this.leftStickySection.map((column) => column) }</div>
+        <LeftStickySection columns={this.leftStickySection} />
         <ScrollableSection
           rowId={rowId}
           columns={this.scrollableSection}
@@ -39,7 +94,7 @@ class ScrollSyncRow extends PureComponent {
           scrollLeft={scrollLeft}
           onScroll={onScroll}
         />
-        <div className="rightStickySection">{ this.rightStickySection.map((column) => column) }</div>
+        <RightStickySection columns={this.rightStickySection} />
       </div>
     );
   };

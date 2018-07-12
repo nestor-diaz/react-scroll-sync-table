@@ -19,7 +19,7 @@ class ScrollSyncTable extends PureComponent {
 
   extractRowsAndColumns = () => {
     if (React.Children.count(this.props.children) !== 2) {
-      console.warn('Two children expected: ScrollSyncColumns and ScrollSyncRows');
+      console.warn('ScrollSyncTable: Two children expected, ScrollSyncColumns and ScrollSyncRows');
 
       return { columns: [], rows: [] };
     }
@@ -31,9 +31,11 @@ class ScrollSyncTable extends PureComponent {
   };
 
   render() {
+    const { stickHeader } = this.props;
+
     return (
       <div className="scrollSyncTable">
-        <ScrollSyncBody {...this.extractRowsAndColumns()} />
+        <ScrollSyncBody stickHeader={stickHeader} {...this.extractRowsAndColumns()} />
       </div>
     );
   }
@@ -41,7 +43,8 @@ class ScrollSyncTable extends PureComponent {
 
 ScrollSyncTable.defaultProps = {
   columns: [],
-  rows: []
+  rows: [],
+  stickHeader: false
 };
 
 export default ScrollSyncTable;
