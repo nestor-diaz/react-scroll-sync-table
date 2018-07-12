@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
 import ScrollSyncTable from './ScrollSyncTable';
 import ScrollSyncColumns from './ScrollSyncTable/ScrollSyncColumns';
 import ScrollSyncColumn from './ScrollSyncTable/ScrollSyncColumns/ScrollSyncColumn';
 import ScrollSyncRows from './ScrollSyncTable/ScrollSyncRows';
 import ScrollSyncRow from './ScrollSyncTable/ScrollSyncRows/ScrollSyncRow';
 import ScrollSyncCell from './ScrollSyncTable/ScrollSyncCell';
+import './App.css';
 
 class App extends Component {
   state = {
