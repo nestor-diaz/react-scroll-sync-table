@@ -1,7 +1,7 @@
 import React from 'react';
-import './FlexyColumn.css';
+import './ScrollSyncColumn.css';
 
-const Column = ({ width }) => {
+const ScrollSyncColumn = ({ width }) => {
   const styles = {
     width: width,
     flex: `0 0 ${width}`
@@ -10,8 +10,8 @@ const Column = ({ width }) => {
   return (<div className="flexyColumn" style={styles}>Column</div>);
 };
 
-Column.defaultProps = {
+ScrollSyncColumn.defaultProps = {
   width: '100px'
 };
 
-export default Column;
+export default ScrollSyncColumn;
