@@ -13,6 +13,15 @@
   z-index: 1000;
 }
 
+/* apply differents styles to FlexyTable Sticky Rows, aka as TableHeader */
+.flexyRow.sticky .leftStickySection > div.flexyColumn,
+.flexyRow.sticky .rightStickySection > div.flexyColumn,
+.flexyRow.sticky .scrollableSection > div.flexyColumn
+ {
+  background-color: #aaaaaa;
+  height: 5rem;
+}
+
 .leftStickySection {
   flex: 0 0 auto;
   position: sticky;
