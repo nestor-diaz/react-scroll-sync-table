@@ -1,115 +1,47 @@
 import React, { PureComponent } from 'react';
 import FlexyTableBody from './FlexyTableBody';
+import FlexyColumns from './Columns';
+import FlexyRows from './Rows';
 import './FlexyTable.css';
 
-// Static columns
-const columns = [{
-  name: 'toggle',
-  title: '',
-  link: '',
-  width: '50px',
-  stickyAlign: 'left'
-}, {
-  name: 'product-info',
-  title: 'Product Info',
-  link: '',
-  width: '100px',
-  stickyAlign: 'left'
-}, {
-  name: 'source-control',
-  title: 'Source Control',
-  link: '',
-  width: '150px',
-}, {
-  name: 'test-coverage',
-  title: 'Test Coverage',
-  link: '',
-  width: '120px',
-}, {
-  name: 'test-coverage-1',
-  title: 'Test Coverage',
-  link: '',
-  width: '120px',
-}, {
-  name: 'test-coverage-2',
-  title: 'Test Coverage',
-  link: '',
-  width: '120px'
-}, {
-  name: 'test-coverage-3',
-  title: 'Test Coverage',
-  link: '',
-  width: '120px'
-}, {
-  name: 'test-coverage-4',
-  title: 'Test Coverage',
-  link: '',
-  width: '120px'
-}, {
-  name: 'test-coverage-5',
-  title: 'Test Coverage',
-  link: '',
-  width: '120px'
-}, {
-  name: 'test-coverage-6',
-  title: 'Test Coverage',
-  link: '',
-  width: '120px'
-}, {
-  name: 'test-coverage-6',
-  title: 'Test Coverage',
-  link: '',
-  width: '120px'
-}, {
-  name: 'test-coverage-8',
-  title: 'Test Coverage',
-  link: '',
-  width: '120px'
-}, {
-  name: 'test-coverage-9',
-  title: 'Test Coverage',
-  link: '',
-  width: '120px'
-}, {
-  name: 'test-coverage-6',
-  title: 'Test Coverage',
-  link: '',
-  width: '120px',
-  stickyAlign: 'rigth'
-}];
-
-// Dynamic rows
-const rows = [{
-  name: 'header',
-  isSticky: true
-}, {
-  name: 'exchange',
-  isSticky: false
-}, {
-  name: 'amf',
-  isSticky: false
-}, {
-  name: 'exchange-1',
-  isSticky: false
-}, {
-  name: 'amf-1',
-  isSticky: false
-}, {
-  name: 'exchange-2',
-  isSticky: false
-}, {
-  name: 'amf-2',
-  isSticky: false
-}];
-
 class FlexyTable extends PureComponent {
+  getColumns = () => {
+    const flexyColumns = this.props.children.find((child) => (child.type === FlexyColumns));
+
+    return flexyColumns.props.children || [];
+  };
+
+  getRows = () => {
+    const flexyRows = this.props.children.find((child) => (child.type === FlexyRows));
+
+    return flexyRows.props.children || [];
+  };
+
+  extractRowsAndColumns = () => {
+    if (React.Children.count(this.props.children) !== 2) {
+      console.warn('Two children expected: FlexyColumns and FlexyRows');
+
+      return { columns: [], rows: [] };
+    }
+
+    return {
+      columns: this.getColumns(),
+      rows: this.getRows()
+    };
+  };
+
   render() {
     return (
       <div className="flexyTable">
-        <FlexyTableBody columns={columns} rows={rows} />
+        <FlexyTableBody {...this.extractRowsAndColumns()} />
       </div>
     );
   }
 }
+
+FlexyTable.defaultProps = {
+  columns: [],
+  rows: []
+};
 
 export default FlexyTable;

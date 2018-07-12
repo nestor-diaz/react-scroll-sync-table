@@ -21,18 +21,24 @@ class FlexyTableBody extends PureComponent {
     const { rows, columns } = this.props;
     const { rowBeingScrolled, scrollLeft } = this.state;
 
-    return rows.map((row, rowIndex) => (
-      <FlexyRow
-        rowId={rowIndex}
-        key={row.name}
-        columns={columns}
-        rowBeingScrolled={rowBeingScrolled}
-        scrollLeft={scrollLeft}
-        onScroll={this.handleScrollEvent}
-        {...row}
-      />)
+    return rows.map((row, rowIndex) =>
+      injectPropsToRow(row, {
+        key: row.props.name || rowIndex,
+        rowId: rowIndex,
+        onScroll: this.handleScrollEvent,
+        columns,
+        rowBeingScrolled,
+        scrollLeft,
+        ...row.props
+      })
     );
   }
+}
+
+function injectPropsToRow(row, props) {
+  return (
+    <div key={props.key}>{ React.cloneElement(row, props) }</div>
+  );
 }
 
 export default FlexyTableBody;
