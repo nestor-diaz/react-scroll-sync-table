@@ -1,20 +1,27 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import ScrollSyncBody from '../ScrollSyncBody';
 import ScrollSyncColumns from '../ScrollSyncColumns';
 import ScrollSyncRows from '../ScrollSyncRows';
 import './ScrollSyncTable.css';
 
 class ScrollSyncTable extends PureComponent {
-  getColumns = () => {
-    const columns = this.props.children.find((child) => (child.type === ScrollSyncColumns));
+  constructor(props) {
+    super(props);
 
-    return columns.props.children || [];
+    this.childrenArray = React.Children.toArray(props.children);
+  }
+
+  getColumns = () => {
+    const columns = this.childrenArray.find((child) => (child.type === ScrollSyncColumns));
+
+    return React.Children.toArray(columns.props.children) || [];
   };
 
   getRows = () => {
-    const rows = this.props.children.find((child) => (child.type === ScrollSyncRows));
+    const rows = this.childrenArray.find((child) => (child.type === ScrollSyncRows));
 
-    return rows.props.children || [];
+    return React.Children.toArray(rows.props.children) || [];
   };
 
   extractRowsAndColumns = () => {
@@ -41,9 +48,12 @@ class ScrollSyncTable extends PureComponent {
   }
 }
 
+ScrollSyncTable.propTypes = {
+  /** Whether you want a sticky header or not */
+  stickHeader: PropTypes.bool
+};
+
 ScrollSyncTable.defaultProps = {
-  columns: [],
-  rows: [],
   stickHeader: false
 };
 

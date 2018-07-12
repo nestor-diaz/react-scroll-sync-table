@@ -1,5 +1,5 @@
 ## ScrollSyncTable
-### A table to show components in a expresive way with horizontal synced scroll.
+### A table to show components in a declarative way with horizontal synced scroll.
 
 
 The table is a composition of React components where you explicitly set the Columns and the Rows.

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import ScrollSyncRow from '../ScrollSyncRows/ScrollSyncRow';
 
 class ScrollSyncBody extends PureComponent {
@@ -60,5 +61,18 @@ class ScrollSyncBody extends PureComponent {
 function injectPropsToRow(row, props) {
   return (<span key={props.key}>{ React.cloneElement(row, props) }</span>);
 }
+
+ScrollSyncBody.defaultProps = {
+  rows: [],
+  columns: []
+};
+
+ScrollSyncBody.propTypes = {
+  /** An array of ScrollSyncRow */
+  rows: PropTypes.array.isRequired,
+
+  /** An array of ScrollSyncColumn */
+  columns: PropTypes.array.isRequired
+};
 
 export default ScrollSyncBody;

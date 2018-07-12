@@ -1,10 +1,7 @@
 .scrollSyncRow {
-  background: #FFF;
-  border-radius: 3px;
-  box-shadow: 1px 1px 2px #cacbcc;
   display: flex;
-  margin-bottom: 15px;
   overflow-x: hidden;
+  min-height: 50px;
 }
 
 .sticky {
