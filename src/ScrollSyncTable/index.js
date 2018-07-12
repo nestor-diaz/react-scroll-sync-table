@@ -1,3 +1,3 @@
-import FlexyTable from './FlexyTable';
+import ScrollSyncTable from './ScrollSyncTable';
 
-export default FlexyTable;
+export default ScrollSyncTable;

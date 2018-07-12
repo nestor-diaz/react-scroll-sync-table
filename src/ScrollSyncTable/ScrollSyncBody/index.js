@@ -1,3 +1,3 @@
-import FlexyTableBody from './FlexyTableBody';
+import ScrollSyncBody from './ScrollSyncBody';
 
-export default FlexyTableBody;
+export default ScrollSyncBody;

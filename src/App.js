@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import FlexyTable from './FlexyTable';
-import FlexyColumns from './FlexyTable/Columns';
-import FlexyColumn from './FlexyTable/Columns/Column';
-import FlexyRows from './FlexyTable/Rows';
-import FlexyRow from './FlexyTable/Rows/Row';
-import Cell from './FlexyTable/Cell';
+import ScrollSyncTable from './ScrollSyncTable';
+import ScrollSyncColumns from './ScrollSyncTable/ScrollSyncColumns';
+import ScrollSyncColumn from './ScrollSyncTable/ScrollSyncColumns/ScrollSyncColumn';
+import ScrollSyncRows from './ScrollSyncTable/ScrollSyncRows';
+import ScrollSyncRow from './ScrollSyncTable/ScrollSyncRows/ScrollSyncRow';
+import ScrollSyncCell from './ScrollSyncTable/ScrollSyncCell';
 
 class App extends Component {
   state = {
@@ -22,49 +22,49 @@ class App extends Component {
     return (
       <div className={containerClass}>
         <button onClick={this.toggleFullWidthContainer}>Full Metrics Container</button>
-        <FlexyTable>
-          <FlexyColumns>
-            <FlexyColumn name="a" title="" helpLink="" width="30px" stickyAlign="left" />
-            <FlexyColumn name="b" title="" helpLink="" width="100px" />
-            <FlexyColumn name="c" title="" helpLink="" width="100px" />
-            <FlexyColumn name="d" title="" helpLink="" width="30px" stickyAlign="rigth" />
-            <FlexyColumn name="e" title="" helpLink="" width="100px" />
-            <FlexyColumn name="f" title="" helpLink="" width="100px" />
-            <FlexyColumn name="g" title="" helpLink="" width="100px" />
-            <FlexyColumn name="h" title="" helpLink="" width="100px" />
-            <FlexyColumn name="i" title="" helpLink="" width="100px" />
-            <FlexyColumn name="j" title="" helpLink="" width="100px" />
-            <FlexyColumn name="k" title="" helpLink="" width="100px" />
-            <FlexyColumn name="m" title="" helpLink="" width="100px" />
-            <FlexyColumn name="n" title="" helpLink="" width="100px" />
-          </FlexyColumns>
-          <FlexyRows>
-            <FlexyRow isSticky isHeader>
-              <Cell column="a">Row A / Column A</Cell>
-              <Cell column="b">Row A / Column B</Cell>
-              <Cell column="c">Row A / Column C</Cell>
-              <Cell column="d">Row A / Column D</Cell>
-            </FlexyRow>
-            <FlexyRow name="b">
-              <Cell column="a">Row B / Column A</Cell>
-              <Cell column="b">Row B / Column B</Cell>
-              <Cell column="c">Row B / Column C</Cell>
-              <Cell column="d">Row B / Column D</Cell>
-            </FlexyRow>
-            <FlexyRow name="c">
-              <Cell column="a">Row C / Column A</Cell>
-              <Cell column="b">Row C / Column B</Cell>
-              <Cell column="c">Row C / Column C</Cell>
-              <Cell column="d">Row C / Column D</Cell>
-            </FlexyRow>
-            <FlexyRow name="d">
-              <Cell column="a">Row D / Column A</Cell>
-              <Cell column="b">Row D / Column B</Cell>
-              <Cell column="c">Row D / Column C</Cell>
-              <Cell column="d">Row D / Column D</Cell>
-            </FlexyRow>
-          </FlexyRows>
-        </FlexyTable>
+        <ScrollSyncTable>
+          <ScrollSyncColumns>
+            <ScrollSyncColumn name="a" title="" helpLink="" width="30px" stickyAlign="left" />
+            <ScrollSyncColumn name="b" title="" helpLink="" width="100px" />
+            <ScrollSyncColumn name="c" title="" helpLink="" width="100px" />
+            <ScrollSyncColumn name="d" title="" helpLink="" width="30px" stickyAlign="rigth" />
+            <ScrollSyncColumn name="e" title="" helpLink="" width="100px" />
+            <ScrollSyncColumn name="f" title="" helpLink="" width="100px" />
+            <ScrollSyncColumn name="g" title="" helpLink="" width="100px" />
+            <ScrollSyncColumn name="h" title="" helpLink="" width="100px" />
+            <ScrollSyncColumn name="i" title="" helpLink="" width="100px" />
+            <ScrollSyncColumn name="j" title="" helpLink="" width="100px" />
+            <ScrollSyncColumn name="k" title="" helpLink="" width="100px" />
+            <ScrollSyncColumn name="m" title="" helpLink="" width="100px" />
+            <ScrollSyncColumn name="n" title="" helpLink="" width="100px" />
+          </ScrollSyncColumns>
+          <ScrollSyncRows>
+            <ScrollSyncRow isSticky isHeader>
+              <ScrollSyncCell column="a">Row A / Column A</ScrollSyncCell>
+              <ScrollSyncCell column="b">Row A / Column B</ScrollSyncCell>
+              <ScrollSyncCell column="c">Row A / Column C</ScrollSyncCell>
+              <ScrollSyncCell column="d">Row A / Column D</ScrollSyncCell>
+            </ScrollSyncRow>
+            <ScrollSyncRow name="b">
+              <ScrollSyncCell column="a">Row B / Column A</ScrollSyncCell>
+              <ScrollSyncCell column="b">Row B / Column B</ScrollSyncCell>
+              <ScrollSyncCell column="c">Row B / Column C</ScrollSyncCell>
+              <ScrollSyncCell column="d">Row B / Column D</ScrollSyncCell>
+            </ScrollSyncRow>
+            <ScrollSyncRow name="c">
+              <ScrollSyncCell column="a">Row C / Column A</ScrollSyncCell>
+              <ScrollSyncCell column="b">Row C / Column B</ScrollSyncCell>
+              <ScrollSyncCell column="c">Row C / Column C</ScrollSyncCell>
+              <ScrollSyncCell column="d">Row C / Column D</ScrollSyncCell>
+            </ScrollSyncRow>
+            <ScrollSyncRow name="d">
+              <ScrollSyncCell column="a">Row D / Column A</ScrollSyncCell>
+              <ScrollSyncCell column="b">Row D / Column B</ScrollSyncCell>
+              <ScrollSyncCell column="c">Row D / Column C</ScrollSyncCell>
+              <ScrollSyncCell column="d">Row D / Column D</ScrollSyncCell>
+            </ScrollSyncRow>
+          </ScrollSyncRows>
+        </ScrollSyncTable>
       </div>
     );
   }

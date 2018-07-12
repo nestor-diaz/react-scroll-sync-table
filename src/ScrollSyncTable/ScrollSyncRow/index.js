@@ -1,3 +1,3 @@
-import FlexyRow from './FlexyRow';
+import FlexyRow from './ScrollSyncRow';
 
 export default FlexyRow;

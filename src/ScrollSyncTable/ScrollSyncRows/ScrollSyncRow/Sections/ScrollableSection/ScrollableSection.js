@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
-import FlexyColumn from '../../../FlexyColumn';
 import './ScrollableSection.css';
 
 class ScrollableSection extends PureComponent {

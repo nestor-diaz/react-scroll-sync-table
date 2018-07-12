@@ -1,25 +1,25 @@
 import React, { PureComponent } from 'react';
-import FlexyTableBody from './FlexyTableBody';
-import FlexyColumns from './Columns';
-import FlexyRows from './Rows';
-import './FlexyTable.css';
+import ScrollSyncBody from './ScrollSyncBody';
+import ScrollSyncColumns from './ScrollSyncColumns';
+import ScrollSyncRows from './ScrollSyncRows';
+import './ScrollSyncTable.css';
 
-class FlexyTable extends PureComponent {
+class ScrollSyncTable extends PureComponent {
   getColumns = () => {
-    const flexyColumns = this.props.children.find((child) => (child.type === FlexyColumns));
+    const columns = this.props.children.find((child) => (child.type === ScrollSyncColumns));
 
-    return flexyColumns.props.children || [];
+    return columns.props.children || [];
   };
 
   getRows = () => {
-    const flexyRows = this.props.children.find((child) => (child.type === FlexyRows));
+    const rows = this.props.children.find((child) => (child.type === ScrollSyncRows));
 
-    return flexyRows.props.children || [];
+    return rows.props.children || [];
   };
 
   extractRowsAndColumns = () => {
     if (React.Children.count(this.props.children) !== 2) {
-      console.warn('Two children expected: FlexyColumns and FlexyRows');
+      console.warn('Two children expected: ScrollSyncColumns and ScrollSyncRows');
 
       return { columns: [], rows: [] };
     }
@@ -33,15 +33,15 @@ class FlexyTable extends PureComponent {
   render() {
     return (
       <div className="flexyTable">
-        <FlexyTableBody {...this.extractRowsAndColumns()} />
+        <ScrollSyncBody {...this.extractRowsAndColumns()} />
       </div>
     );
   }
 }
 
-FlexyTable.defaultProps = {
+ScrollSyncTable.defaultProps = {
   columns: [],
   rows: []
 };
 
-export default FlexyTable;
+export default ScrollSyncTable;

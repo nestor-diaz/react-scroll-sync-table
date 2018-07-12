@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
-import FlexyRow from '../FlexyRow';
 
-class FlexyTableBody extends PureComponent {
+class ScrollSyncBody extends PureComponent {
   state = {
     scrollLeft: 0,
     rowBeingScrolled: null
@@ -41,4 +40,4 @@ function injectPropsToRow(row, props) {
   );
 }
 
-export default FlexyTableBody;
+export default ScrollSyncBody;

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { ScrollableSection } from './Sections';
-import './FlexyRow.css';
+import './ScrollSyncRow.css';
 
 class ScrollSyncRow extends PureComponent {
   leftStickySection = [];
