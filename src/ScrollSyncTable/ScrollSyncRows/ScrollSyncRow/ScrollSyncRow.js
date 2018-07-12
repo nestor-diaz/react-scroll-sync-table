@@ -27,7 +27,7 @@ class ScrollSyncRow extends PureComponent {
       onScroll
     } = this.props;
 
-    const rowClasses = isSticky ? 'flexyRow sticky' : 'flexyRow';
+    const rowClasses = isSticky ? 'scrollSyncRow sticky' : 'scrollSyncRow';
 
     return (
       <div className={rowClasses}>

@@ -7,7 +7,7 @@ const ScrollSyncColumn = ({ width }) => {
     flex: `0 0 ${width}`
   };
 
-  return (<div className="flexyColumn" style={styles}>Column</div>);
+  return (<div className="scrollSyncColumn" style={styles}>Column</div>);
 };
 
 ScrollSyncColumn.defaultProps = {

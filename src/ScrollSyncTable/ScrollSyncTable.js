@@ -32,7 +32,7 @@ class ScrollSyncTable extends PureComponent {
 
   render() {
     return (
-      <div className="flexyTable">
+      <div className="scrollSyncTable">
         <ScrollSyncBody {...this.extractRowsAndColumns()} />
       </div>
     );

@@ -1,4 +1,4 @@
-.flexyRow {
+.scrollSyncRow {
   background: #FFF;
   border-radius: 3px;
   box-shadow: 1px 1px 2px #cacbcc;
@@ -19,7 +19,7 @@
   left: 0;
 }
 
-.leftStickySection .flexyColumn {
+.leftStickySection .scrollSyncColumn {
   float: left;
 }
 
@@ -29,6 +29,6 @@
   right: 0;
 }
 
-.rightStickySection .flexyColumn {
+.rightStickySection .scrollSyncColumn {
   float: left;
 }
