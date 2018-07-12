@@ -11,9 +11,13 @@
     "react-virtualized": "^9.20.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "neutrino styleguide:start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "neutrino": "^8.3.0",
+    "neutrino-preset-mozilla-frontend-infra": "^4.1.0"
   }
 }
