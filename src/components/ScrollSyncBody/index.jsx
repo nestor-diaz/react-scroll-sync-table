@@ -5,10 +5,13 @@ import ScrollSyncRow from '../ScrollSyncRows/ScrollSyncRow';
 class ScrollSyncBody extends PureComponent {
   state = {
     scrollLeft: 0,
-    rowBeingScrolled: null
+    rowBeingScrolled: null,
   };
 
-  handleScrollEvent = ({ isScrollingOnSameRow, rowBeingScrolled, scrollLeft }, scrollEventCallback) => {
+  handleScrollEvent = (
+    { isScrollingOnSameRow, rowBeingScrolled, scrollLeft },
+    scrollEventCallback
+  ) => {
     scrollEventCallback();
 
     if (isScrollingOnSameRow) {
@@ -35,22 +38,26 @@ class ScrollSyncBody extends PureComponent {
     );
   };
 
+  injectPropsToRow = (row, props) => (
+    <span key={props.key}>{React.cloneElement(row, props)}</span>
+  );
+
   render() {
     const { rows, columns } = this.props;
     const { rowBeingScrolled, scrollLeft } = this.state;
 
     return (
       <div className="scrollSyncBody">
-        <span key="0">{ this.renderHeaderRow() }</span>
+        <span key="0">{this.renderHeaderRow()}</span>
         {rows.map((row, rowIndex) =>
-          injectPropsToRow(row, {
+          this.injectPropsToRow(row, {
             key: row.props.name || rowIndex,
-            rowId: (rowIndex + 1),
+            rowId: rowIndex + 1,
             onScroll: this.handleScrollEvent,
             columns,
             rowBeingScrolled,
             scrollLeft,
-            ...row.props
+            ...row.props,
           })
         )}
       </div>
@@ -58,13 +65,9 @@ class ScrollSyncBody extends PureComponent {
   }
 }
 
-function injectPropsToRow(row, props) {
-  return (<span key={props.key}>{ React.cloneElement(row, props) }</span>);
-}
-
 ScrollSyncBody.defaultProps = {
   rows: [],
-  columns: []
+  columns: [],
 };
 
 ScrollSyncBody.propTypes = {
@@ -72,7 +75,7 @@ ScrollSyncBody.propTypes = {
   rows: PropTypes.array.isRequired,
 
   /** An array of ScrollSyncColumn */
-  columns: PropTypes.array.isRequired
+  columns: PropTypes.array.isRequired,
 };
 
 export default ScrollSyncBody;

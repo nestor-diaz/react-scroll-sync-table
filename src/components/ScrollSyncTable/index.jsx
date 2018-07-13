@@ -13,27 +13,29 @@ class ScrollSyncTable extends PureComponent {
   }
 
   getColumns = () => {
-    const columns = this.childrenArray.find((child) => (child.type === ScrollSyncColumns));
+    const columns = this.childrenArray.find(
+      child => child.type === ScrollSyncColumns
+    );
 
     return React.Children.toArray(columns.props.children) || [];
   };
 
   getRows = () => {
-    const rows = this.childrenArray.find((child) => (child.type === ScrollSyncRows));
+    const rows = this.childrenArray.find(
+      child => child.type === ScrollSyncRows
+    );
 
     return React.Children.toArray(rows.props.children) || [];
   };
 
   extractRowsAndColumns = () => {
     if (React.Children.count(this.props.children) !== 2) {
-      console.warn('ScrollSyncTable: Two children expected, ScrollSyncColumns and ScrollSyncRows');
-
       return { columns: [], rows: [] };
     }
 
     return {
       columns: this.getColumns(),
-      rows: this.getRows()
+      rows: this.getRows(),
     };
   };
 
@@ -42,7 +44,10 @@ class ScrollSyncTable extends PureComponent {
 
     return (
       <div className="scrollSyncTable">
-        <ScrollSyncBody stickHeader={stickHeader} {...this.extractRowsAndColumns()} />
+        <ScrollSyncBody
+          stickHeader={stickHeader}
+          {...this.extractRowsAndColumns()}
+        />
       </div>
     );
   }
@@ -50,11 +55,11 @@ class ScrollSyncTable extends PureComponent {
 
 ScrollSyncTable.propTypes = {
   /** Whether you want a sticky header or not */
-  stickHeader: PropTypes.bool
+  stickHeader: PropTypes.bool,
 };
 
 ScrollSyncTable.defaultProps = {
-  stickHeader: false
+  stickHeader: false,
 };
 
 export default ScrollSyncTable;

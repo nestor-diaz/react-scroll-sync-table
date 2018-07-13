@@ -10,9 +10,7 @@ class ScrollableSection extends PureComponent {
 
     this.rowId = props.rowId;
 
-    this.setScrollableAreaRef = (element) => {
-      this.scrollableArea = element;
-    };
+    this.setScrollableAreaRef = element => (this.scrollableArea = element);
   }
 
   componentDidUpdate() {
@@ -20,26 +18,36 @@ class ScrollableSection extends PureComponent {
     this.scrollableArea.scrollLeft(this.props.scrollLeft);
   }
 
-  onScrollSection = () => {
+  handleOnScrollSection = () => {
     const scrollLeft = this.scrollableArea.getScrollLeft();
-    this.scrollableArea.hideTracks();
 
-    this.props.onScroll({
-      isScrollingOnSameRow: this.preventChangingCurrentRow,
-      rowBeingScrolled: this.rowId,
-      scrollLeft
-    }, () => {
-      this.preventChangingCurrentRow = false;
-    });
+    this.props.onScroll(
+      {
+        isScrollingOnSameRow: this.preventChangingCurrentRow,
+        rowBeingScrolled: this.rowId,
+        scrollLeft,
+      },
+      () => {
+        this.preventChangingCurrentRow = false;
+      }
+    );
   };
 
   renderScrollView = ({ style, ...props }) => {
-    const isScrollingCurrentRow = (this.rowId === this.props.rowBeingScrolled);
+    const isScrollingCurrentRow = this.rowId === this.props.rowBeingScrolled;
     const showScrollTracks = { marginBottom: '0' };
     const hideScrollTracks = { marginBottom: '-18px' };
-    const customStyles = isScrollingCurrentRow ? showScrollTracks : hideScrollTracks;
+    const customStyles = isScrollingCurrentRow
+      ? showScrollTracks
+      : hideScrollTracks;
 
-    return (<div {...props} style={{ ...style, ...hideScrollTracks, ...customStyles }} className="scrollableSection"></div>);
+    return (
+      <div
+        style={{ ...style, ...hideScrollTracks, ...customStyles }}
+        className="scrollableSection"
+        {...props}
+      />
+    );
   };
 
   render() {
@@ -50,14 +58,13 @@ class ScrollableSection extends PureComponent {
         <Scrollbars
           className="scrollBars"
           renderView={this.renderScrollView}
-          onScroll={this.onScrollSection}
-          ref={this.setScrollableAreaRef}
-        >
-          { columns.map((column) => (<div key={column.props.name}>{ column }</div>)) }
+          onScroll={this.handleOnScrollSection}
+          ref={this.setScrollableAreaRef}>
+          {columns.map(column => <div key={column.props.name}>{column}</div>)}
         </Scrollbars>
       </div>
     );
   }
-};
+}
 
 export default ScrollableSection;

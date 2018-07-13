@@ -1,5 +1,5 @@
 import React from 'react';
 
-const ScrollSyncColumns = () => (<div></div>);
+const ScrollSyncColumns = () => <div />;
 
 export default ScrollSyncColumns;
