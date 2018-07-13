@@ -1,7 +1,13 @@
 {
   "name": "react-scroll-sync-table",
   "version": "0.1.0",
-  "private": true,
+  "repository": "ndiaz-candido/react-scroll-sync-table",
+  "main": "build/index.js",
+  "files": [
+    "build",
+    "es5",
+    "src"
+  ],
   "dependencies": {
     "classnames": "^2.2.6",
     "prop-types": "^15.6.2",

@@ -1,11 +1,16 @@
 .scrollSyncRow {
   display: flex;
-  overflow-x: hidden;
+  overflow: hidden;
   min-height: 50px;
+  border-top: 1px solid #e8e8e8;
 }
 
 .sticky {
   position: sticky;
   top: 0;
   z-index: 1000;
+}
+
+.header {
+  background: #e8e8e8
 }

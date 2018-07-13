@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import ScrollSyncBody from '../ScrollSyncBody';
 import ScrollSyncColumns from '../ScrollSyncColumns';
 import ScrollSyncRows from '../ScrollSyncRows';
-import './ScrollSyncTable.css';
+import { scrollSyncTable } from './index.module.css';
 
 class ScrollSyncTable extends PureComponent {
   constructor(props) {
@@ -40,10 +41,11 @@ class ScrollSyncTable extends PureComponent {
   };
 
   render() {
-    const { stickHeader } = this.props;
+    const { stickHeader, className } = this.props;
+    const classNames = classnames(scrollSyncTable, className);
 
     return (
-      <div className="scrollSyncTable">
+      <div className={classNames}>
         <ScrollSyncBody
           stickHeader={stickHeader}
           {...this.extractRowsAndColumns()}
@@ -56,10 +58,14 @@ class ScrollSyncTable extends PureComponent {
 ScrollSyncTable.propTypes = {
   /** Whether you want a sticky header or not */
   stickHeader: PropTypes.bool,
+
+  /** The class name to override the default styles */
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 };
 
 ScrollSyncTable.defaultProps = {
   stickHeader: false,
+  className: '',
 };
 
 export default ScrollSyncTable;

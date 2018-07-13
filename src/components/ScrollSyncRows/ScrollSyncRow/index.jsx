@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import ScrollSyncTableCell from '../../ScrollSyncCell';
 import LeftStickySection from './Sections/LeftStickySection';
 import RightStickySection from './Sections/RightStickySection';
 import ScrollableSection from './Sections/ScrollableSection';
-import './ScrollSyncRow.css';
+import { scrollSyncRow, sticky, header } from './index.module.css';
 
 class ScrollSyncRow extends PureComponent {
   static HEADER_ROW_ID = 0;
@@ -85,11 +87,16 @@ class ScrollSyncRow extends PureComponent {
     const {
       rowId,
       isSticky,
+      isHeader,
       rowBeingScrolled,
       scrollLeft,
       onScroll,
+      className
     } = this.props;
-    const rowClasses = isSticky ? 'scrollSyncRow sticky' : 'scrollSyncRow';
+    const rowClasses = classnames(className, scrollSyncRow, {
+      [sticky]: isSticky,
+      [header]: isHeader
+    });
 
     return (
       <div className={rowClasses}>
@@ -106,5 +113,14 @@ class ScrollSyncRow extends PureComponent {
     );
   }
 }
+
+ScrollSyncRow.propTypes = {
+  /** The class name to override the default styles */
+  className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+};
+
+ScrollSyncRow.defaultProps = {
+  className: '',
+};
 
 export default ScrollSyncRow;

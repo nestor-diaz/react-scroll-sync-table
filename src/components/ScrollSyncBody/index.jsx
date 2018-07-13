@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import ScrollSyncRow from '../ScrollSyncRows/ScrollSyncRow';
 
@@ -34,12 +34,13 @@ class ScrollSyncBody extends PureComponent {
         columns={columns}
         rowBeingScrolled={rowBeingScrolled}
         scrollLeft={scrollLeft}
+        isHeader
       />
     );
   };
 
   injectPropsToRow = (row, props) => (
-    <span key={props.key}>{React.cloneElement(row, props)}</span>
+    <Fragment key={props.key}>{React.cloneElement(row, props)}</Fragment>
   );
 
   render() {
@@ -47,8 +48,8 @@ class ScrollSyncBody extends PureComponent {
     const { rowBeingScrolled, scrollLeft } = this.state;
 
     return (
-      <div className="scrollSyncBody">
-        <span key="0">{this.renderHeaderRow()}</span>
+      <Fragment>
+        <Fragment key="0">{this.renderHeaderRow()}</Fragment>
         {rows.map((row, rowIndex) =>
           this.injectPropsToRow(row, {
             key: row.props.name || rowIndex,
@@ -60,7 +61,7 @@ class ScrollSyncBody extends PureComponent {
             ...row.props,
           })
         )}
-      </div>
+      </Fragment>
     );
   }
 }
