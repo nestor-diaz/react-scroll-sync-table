@@ -1,17 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { scrollSyncColumn } from './index.module.css';
 
 const ScrollSyncColumn = ({ width, children, className }) => {
-  const styles = {
+  const columnDefaultStyles = {
     width,
     flex: `0 0 ${width}`,
   };
-  const classNames = classnames(className, scrollSyncColumn);
 
   return (
-    <div className={classNames} style={styles}>
+    <div className={className} style={columnDefaultStyles}>
       {children}
     </div>
   );
@@ -19,15 +16,14 @@ const ScrollSyncColumn = ({ width, children, className }) => {
 
 ScrollSyncColumn.propTypes = {
   width: PropTypes.string,
-  children: PropTypes.any.isRequired,
-
-  /** The class name to override the default styles */
-  className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  children: PropTypes.any,
+  className: PropTypes.any,
 };
 
 ScrollSyncColumn.defaultProps = {
   width: '150px',
-  className: ''
+  children: null,
+  className: '',
 };
 
 export default ScrollSyncColumn;

@@ -1,11 +1,19 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import ScrollSyncTableCell from '../../ScrollSyncCell';
 import LeftStickySection from './Sections/LeftStickySection';
 import RightStickySection from './Sections/RightStickySection';
 import ScrollableSection from './Sections/ScrollableSection';
-import { scrollSyncRow, sticky, header } from './index.module.css';
+
+const defaultRowStyle = {
+  display: 'flex',
+  overflow: 'hidden',
+  minHeight: '50px',
+};
+const stickyStyle = {
+  position: 'sticky',
+  top: '0',
+  zIndex: '1000',
+};
 
 class ScrollSyncRow extends PureComponent {
   static HEADER_ROW_ID = 0;
@@ -25,7 +33,7 @@ class ScrollSyncRow extends PureComponent {
 
   componentWillMount() {
     if (this.rowId === ScrollSyncRow.HEADER_ROW_ID) {
-      this.rowColumns = this.props.columns;
+      this.rowColumns = this.injectPropsToHeaderColumns();
       this.distribuiteColumnsPerSection();
     } else if (this.areChildrenSyncCells()) {
       this.rowColumns = this.setChildPerColumn();
@@ -40,8 +48,8 @@ class ScrollSyncRow extends PureComponent {
     return childrenArray.some(child => child.type === ScrollSyncTableCell);
   };
 
-  replaceColumnChildren = column => {
-    const { children } = this.props;
+  injectPropsToRegularColumn = column => {
+    const { children, columnClassName } = this.props;
     const columnName = column.props.name;
     const scrollSyncCells = React.Children.toArray(children);
     const scrollSyncCellMatchingColumn = scrollSyncCells.find(
@@ -53,7 +61,18 @@ class ScrollSyncRow extends PureComponent {
 
     return React.cloneElement(column, {
       children: scrollSyncCellMatchingColumnChildren,
+      className: columnClassName,
     });
+  };
+
+  injectPropsToHeaderColumns = () => {
+    const { columns, columnClassName } = this.props;
+
+    return columns.map(column =>
+      React.cloneElement(column, {
+        className: columnClassName,
+      })
+    );
   };
 
   setChildPerColumn = () => {
@@ -61,7 +80,7 @@ class ScrollSyncRow extends PureComponent {
     let rowColumns = [];
 
     if (children && React.Children.count(children) > 0) {
-      rowColumns = columns.map(this.replaceColumnChildren);
+      rowColumns = columns.map(this.injectPropsToRegularColumn);
     }
 
     return rowColumns;
@@ -73,7 +92,7 @@ class ScrollSyncRow extends PureComponent {
         case 'left':
           this.leftStickySection.push(column);
           break;
-        case 'rigth':
+        case 'right':
           this.rightStickySection.push(column);
           break;
         default:
@@ -87,40 +106,31 @@ class ScrollSyncRow extends PureComponent {
     const {
       rowId,
       isSticky,
-      isHeader,
       rowBeingScrolled,
       scrollLeft,
       onScroll,
-      className
+      className,
     } = this.props;
-    const rowClasses = classnames(className, scrollSyncRow, {
-      [sticky]: isSticky,
-      [header]: isHeader
-    });
+    const stickyStyleProps = isSticky ? stickyStyle : {};
+    const styles = {
+      ...defaultRowStyle,
+      ...stickyStyleProps,
+    };
 
     return (
-      <div className={rowClasses}>
+      <div className={className} style={styles}>
         <LeftStickySection columns={this.leftStickySection} />
         <ScrollableSection
           rowId={rowId}
           columns={this.scrollableSection}
           rowBeingScrolled={rowBeingScrolled}
-          scrollLeft={scrollLeft}
           onScroll={onScroll}
+          scrollLeft={scrollLeft}
         />
         <RightStickySection columns={this.rightStickySection} />
       </div>
     );
   }
 }
-
-ScrollSyncRow.propTypes = {
-  /** The class name to override the default styles */
-  className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-};
-
-ScrollSyncRow.defaultProps = {
-  className: '',
-};
 
 export default ScrollSyncRow;

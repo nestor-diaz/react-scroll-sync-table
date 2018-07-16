@@ -3,7 +3,7 @@ module.exports = {
     'neutrino-preset-mozilla-frontend-infra/styleguide',
     ['neutrino-preset-mozilla-frontend-infra/react-components', {
       style: {
-        extract: false,
+        extract: true,
       }
     }],
     (neutrino) => {

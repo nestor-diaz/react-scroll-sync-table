@@ -1,12 +1,16 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import ScrollSyncBody from '../ScrollSyncBody';
 import ScrollSyncColumns from '../ScrollSyncColumns';
 import ScrollSyncRows from '../ScrollSyncRows';
-import { scrollSyncTable } from './index.module.css';
 
 class ScrollSyncTable extends PureComponent {
+  tableDefaultStyles = {
+    fontFamily: 'Arial, Helvetica, sans-serif',
+    height: 'auto',
+    width: '100%',
+  };
+
   constructor(props) {
     super(props);
 
@@ -41,13 +45,23 @@ class ScrollSyncTable extends PureComponent {
   };
 
   render() {
-    const { stickHeader, className } = this.props;
-    const classNames = classnames(scrollSyncTable, className);
+    const {
+      stickHeader,
+      tableClassName,
+      rowClassName,
+      columnClassName,
+      headerClassName,
+      headerColumnClassName,
+    } = this.props;
 
     return (
-      <div className={classNames}>
+      <div className={tableClassName} style={this.tableDefaultStyles}>
         <ScrollSyncBody
           stickHeader={stickHeader}
+          rowClassName={rowClassName}
+          columnClassName={columnClassName}
+          headerClassName={headerClassName}
+          headerColumnClassName={headerColumnClassName}
           {...this.extractRowsAndColumns()}
         />
       </div>
@@ -59,13 +73,29 @@ ScrollSyncTable.propTypes = {
   /** Whether you want a sticky header or not */
   stickHeader: PropTypes.bool,
 
-  /** The class name to override the default styles */
-  className: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  /** The class name to be applied to the table */
+  tableClassName: PropTypes.any,
+
+  /** The class name to be applied to the table rows */
+  rowClassName: PropTypes.any,
+
+  /** The class name to be applied to the table columns */
+  columnClassName: PropTypes.any,
+
+  /** The class name to be applied to the header row */
+  headerClassName: PropTypes.any,
+
+  /** The class name to be applied to the header columns */
+  headerColumnClassName: PropTypes.any,
 };
 
 ScrollSyncTable.defaultProps = {
   stickHeader: false,
-  className: '',
+  tableClassName: '',
+  rowClassName: '',
+  columnClassName: '',
+  headerClassName: '',
+  headerColumnClassName: '',
 };
 
 export default ScrollSyncTable;

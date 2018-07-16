@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './RightStickySection.css';
 
+const defaultSectionStyle = {
+  display: 'flex',
+  flex: '0 0 auto',
+  position: 'sticky',
+  right: '0',
+};
 const RightStickySection = ({ columns }) => (
-  <div className="rightStickySection">
-    {columns.map(column => <div key={column.props.name}>{column}</div>)}
-  </div>
+  <div style={defaultSectionStyle}>{columns.map(column => column)}</div>
 );
 
 RightStickySection.propTypes = {

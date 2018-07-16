@@ -1,9 +1,0 @@
-.leftStickySection {
-  flex: 0 0 auto;
-  position: sticky;
-  left: 0;
-}
-
-.leftStickySection .scrollSyncColumn {
-  float: left;
-}

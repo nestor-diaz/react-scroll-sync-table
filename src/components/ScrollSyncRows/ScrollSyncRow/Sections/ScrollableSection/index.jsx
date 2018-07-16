@@ -1,6 +1,12 @@
 import React, { PureComponent } from 'react';
 import { Scrollbars } from 'react-custom-scrollbars';
-import './ScrollableSection.css';
+
+const defaultWrapperStyle = {
+  flex: '1 1 auto',
+};
+const defaultSectionStyle = {
+  display: 'flex',
+};
 
 class ScrollableSection extends PureComponent {
   rowId = -1;
@@ -43,8 +49,12 @@ class ScrollableSection extends PureComponent {
 
     return (
       <div
-        style={{ ...style, ...hideScrollTracks, ...customStyles }}
-        className="scrollableSection"
+        style={{
+          ...style,
+          ...hideScrollTracks,
+          ...customStyles,
+          ...defaultSectionStyle,
+        }}
         {...props}
       />
     );
@@ -54,13 +64,12 @@ class ScrollableSection extends PureComponent {
     const { columns } = this.props;
 
     return (
-      <div className="scrollAreaWrapper">
+      <div style={defaultWrapperStyle}>
         <Scrollbars
-          className="scrollBars"
           renderView={this.renderScrollView}
           onScroll={this.handleOnScrollSection}
           ref={this.setScrollableAreaRef}>
-          {columns.map(column => <div key={column.props.name}>{column}</div>)}
+          {columns.map(column => column)}
         </Scrollbars>
       </div>
     );

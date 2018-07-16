@@ -22,19 +22,26 @@ class ScrollSyncBody extends PureComponent {
   };
 
   renderHeaderRow = () => {
-    const { columns, stickHeader } = this.props;
+    const {
+      columns,
+      stickHeader,
+      headerClassName,
+      headerColumnClassName,
+    } = this.props;
     const { rowBeingScrolled, scrollLeft } = this.state;
 
     return (
       <ScrollSyncRow
-        key="header"
-        rowId={ScrollSyncRow.HEADER_ROW_ID}
-        isSticky={stickHeader}
-        onScroll={this.handleScrollEvent}
         columns={columns}
+        className={headerClassName}
+        columnClassName={headerColumnClassName}
+        isSticky={stickHeader}
+        isHeader
+        key="header"
+        onScroll={this.handleScrollEvent}
+        rowId={ScrollSyncRow.HEADER_ROW_ID}
         rowBeingScrolled={rowBeingScrolled}
         scrollLeft={scrollLeft}
-        isHeader
       />
     );
   };
@@ -44,7 +51,7 @@ class ScrollSyncBody extends PureComponent {
   );
 
   render() {
-    const { rows, columns } = this.props;
+    const { rows, columns, rowClassName, columnClassName } = this.props;
     const { rowBeingScrolled, scrollLeft } = this.state;
 
     return (
@@ -55,6 +62,8 @@ class ScrollSyncBody extends PureComponent {
             key: row.props.name || rowIndex,
             rowId: rowIndex + 1,
             onScroll: this.handleScrollEvent,
+            className: rowClassName,
+            columnClassName,
             columns,
             rowBeingScrolled,
             scrollLeft,
@@ -66,17 +75,40 @@ class ScrollSyncBody extends PureComponent {
   }
 }
 
+ScrollSyncBody.propTypes = {
+  /** The rows to be rendered in the table. An array of ScrollSyncRow */
+  rows: PropTypes.array.isRequired,
+
+  /**
+   * The columns to be rendered for each row in the table.
+   * An array of ScrollSyncColumn
+   */
+  columns: PropTypes.array.isRequired,
+
+  /** Whether the table will have a sticky header or not */
+  stickHeader: PropTypes.bool,
+
+  /** The class name to be applied to the row */
+  rowClassName: PropTypes.any,
+
+  /** The class name to be applied to the columns */
+  columnClassName: PropTypes.any,
+
+  /** The class name to be applied to the header row */
+  headerClassName: PropTypes.any,
+
+  /** The class name to be applied to the header columns */
+  headerColumnClassName: PropTypes.any,
+};
+
 ScrollSyncBody.defaultProps = {
   rows: [],
   columns: [],
-};
-
-ScrollSyncBody.propTypes = {
-  /** An array of ScrollSyncRow */
-  rows: PropTypes.array.isRequired,
-
-  /** An array of ScrollSyncColumn */
-  columns: PropTypes.array.isRequired,
+  stickHeader: false,
+  rowClassName: '',
+  columnClassName: '',
+  headerClassName: '',
+  headerColumnClassName: '',
 };
 
 export default ScrollSyncBody;
