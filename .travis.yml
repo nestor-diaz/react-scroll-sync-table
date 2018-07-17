@@ -13,10 +13,10 @@ before_install:
     - "npm config set spin false"
     - "npm install -g npm@^2"
 install:
-    - yarn install
+    - npm install
 script:
     - npm install codecov -g
-    - yarn test-with-coverage
+    - npm run test
 after_success:
     - codecov
 build: 
