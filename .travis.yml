@@ -19,7 +19,5 @@ install:
 script:
     - yarn run lint
     - yarn test
-after_success:
-    - codecov
 build: 
     - yarn run build
