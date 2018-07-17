@@ -6,7 +6,6 @@ import ScrollSyncRows from '../ScrollSyncRows';
 
 class ScrollSyncTable extends PureComponent {
   tableDefaultStyles = {
-    fontFamily: 'Arial, Helvetica, sans-serif',
     height: 'auto',
     width: '100%',
   };
