@@ -1,5 +1,5 @@
 ## ScrollSyncTable
-[![Build Status](https://travis-ci.org/sagrath23/react-scroll-sync-table.svg?branch=feature%2Fadd-travis-ci-config)](https://travis-ci.org/sagrath23/react-scroll-sync-table)
+[![Build Status](https://travis-ci.org/ndiaz-candido/react-scroll-sync-table.svg?branch=master)](https://travis-ci.org/ndiaz-candido/react-scroll-sync-table)
 ### A table to show components in a declarative way with horizontal synced scroll.
 
 
