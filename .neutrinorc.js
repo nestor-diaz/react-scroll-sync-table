@@ -11,5 +11,19 @@ module.exports = {
         neutrino.config.module.rules.delete('lint');
       }
     },
+    ['@neutrinojs/jest', {
+        setupFiles: [
+          '<rootDir>/config/jest-shim.js',
+          '<rootDir>/config/jest-setup.js'
+        ],
+        snapshotSerializers: [
+          'enzyme-to-json/serializer'
+        ],
+        "coveragePathIgnorePatterns": [
+          "src/coverage",
+          "/.*\\example.js$"
+        ]
+      }
+    ]
   ],
 };

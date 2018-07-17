@@ -21,7 +21,7 @@ class ScrollSyncTable extends PureComponent {
       child => child.type === ScrollSyncColumns
     );
 
-    return React.Children.toArray(columns.props.children) || [];
+    return React.Children.toArray(columns.props.children);
   };
 
   getRows = () => {
@@ -29,7 +29,7 @@ class ScrollSyncTable extends PureComponent {
       child => child.type === ScrollSyncRows
     );
 
-    return React.Children.toArray(rows.props.children) || [];
+    return React.Children.toArray(rows.props.children);
   };
 
   extractRowsAndColumns = () => {
