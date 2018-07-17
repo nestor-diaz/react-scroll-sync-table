@@ -53,8 +53,8 @@ describe('ScrollSyncTable', () => {
   test('should handle rendering when there are not columns neither rows', () => {
     const ScrollSyncTableComponent = shallow(
       <ScrollSyncTable>
-        <ScrollSyncColumns></ScrollSyncColumns>
-        <ScrollSyncRows></ScrollSyncRows>
+        <ScrollSyncColumns />
+        <ScrollSyncRows />
       </ScrollSyncTable>
     );
 
