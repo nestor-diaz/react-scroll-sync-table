@@ -20,18 +20,24 @@
     "es5",
     "src"
   ],
+  "scripts": {
+    "start": "neutrino styleguide:start",
+    "build": "neutrino build",
+    "lint": "neutrino lint",
+    "test": "neutrino test --coverage",
+    "test:update": "neutrino test --updateSnapshot"
+  },
   "dependencies": {
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.4.1"
   },
-  "scripts": {
-    "start": "neutrino styleguide:start",
-    "build": "neutrino build",
-    "lint": "neutrino lint"
-  },
   "devDependencies": {
+    "@neutrinojs/jest": "^8.3.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "neutrino": "^8.3.0",
     "neutrino-preset-mozilla-frontend-infra": "^4.1.0"
   }
