@@ -8,16 +8,19 @@ addons:
       - google-chrome-stable
 language: node_js
 node_js:
-  - "7"
+  - "8"
+  - "10"
 before_install:
-    - "npm config set spin false"
-    - "npm install -g npm@^2"
+  # Use newer yarn than that pre-installed in the Travis image.
+  - curl -sSfL https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
 install:
-    - npm install
+    - yarn install
 script:
-    - npm install codecov -g
-    - npm run test
+    - yarn install codecov -g
+    - yarn run lint
+    - yarn test
 after_success:
     - codecov
 build: 
-    - npm run build
+    - yarn run build
