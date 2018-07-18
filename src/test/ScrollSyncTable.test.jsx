@@ -20,7 +20,7 @@ describe('ScrollSyncTable', () => {
         rowClassName="row-class-name"
         columnClassName="column-class-name"
         headerClassName="header-class-name"
-        headerColumnClassName="heade-column-class-name"
+        headerColumnClassName="header-column-class-name"
       />
     );
 
