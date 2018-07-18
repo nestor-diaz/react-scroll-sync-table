@@ -1,37 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ScrollSyncRow should handle rendering when a cell does not have children 1`] = `
-<div
-  className=""
-  style={
-    Object {
-      "display": "flex",
-      "minHeight": "50px",
-      "overflow": "hidden",
-    }
-  }
->
-  <LeftStickySection
-    columns={Array []}
-  />
-  <ScrollableSection
-    columns={
-      Array [
-        <ScrollSyncColumn
-          className=""
-          name="a"
-          width="150px"
-        />,
-      ]
-    }
-    rowId={1}
-  />
-  <RightStickySection
-    columns={Array []}
-  />
-</div>
-`;
-
 exports[`ScrollSyncRow should handle rendering when the given cell does not match any column 1`] = `
 <div
   className=""
