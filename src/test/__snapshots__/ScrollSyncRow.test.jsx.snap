@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollSyncRow should handle rendering when a cell does not have children 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "display": "flex",
+      "minHeight": "50px",
+      "overflow": "hidden",
+    }
+  }
+>
+  <LeftStickySection
+    columns={Array []}
+  />
+  <ScrollableSection
+    columns={
+      Array [
+        <ScrollSyncColumn
+          className=""
+          name="a"
+          width="150px"
+        />,
+      ]
+    }
+    rowId={1}
+  />
+  <RightStickySection
+    columns={Array []}
+  />
+</div>
+`;
+
+exports[`ScrollSyncRow should handle rendering when the given cell does not match any column 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "display": "flex",
+      "minHeight": "50px",
+      "overflow": "hidden",
+    }
+  }
+>
+  <LeftStickySection
+    columns={Array []}
+  />
+  <ScrollableSection
+    columns={
+      Array [
+        <ScrollSyncColumn
+          className=""
+          name="a"
+          width="150px"
+        >
+          
+        </ScrollSyncColumn>,
+      ]
+    }
+    rowId={1}
+  />
+  <RightStickySection
+    columns={Array []}
+  />
+</div>
+`;
+
+exports[`ScrollSyncRow should render a header row when it is specified with the given class name 1`] = `
+<div
+  className="a-header-class-name"
+  style={
+    Object {
+      "display": "flex",
+      "minHeight": "50px",
+      "overflow": "hidden",
+    }
+  }
+>
+  <LeftStickySection
+    columns={Array []}
+  />
+  <ScrollableSection
+    columns={
+      Array [
+        <ScrollSyncColumn
+          className=""
+          name="a"
+          width="150px"
+        >
+          Column A
+        </ScrollSyncColumn>,
+      ]
+    }
+    rowId={0}
+  />
+  <RightStickySection
+    columns={Array []}
+  />
+</div>
+`;
+
+exports[`ScrollSyncRow should render columns in the left sticky section 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "display": "flex",
+      "minHeight": "50px",
+      "overflow": "hidden",
+    }
+  }
+>
+  <LeftStickySection
+    columns={
+      Array [
+        <ScrollSyncColumn
+          className=""
+          name="a"
+          stickyAlign="left"
+          width="150px"
+        >
+          Row A / Column A
+        </ScrollSyncColumn>,
+      ]
+    }
+  />
+  <ScrollableSection
+    columns={Array []}
+    rowId={1}
+  />
+  <RightStickySection
+    columns={Array []}
+  />
+</div>
+`;
+
+exports[`ScrollSyncRow should render columns in the rigth sticky section 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "display": "flex",
+      "minHeight": "50px",
+      "overflow": "hidden",
+    }
+  }
+>
+  <LeftStickySection
+    columns={Array []}
+  />
+  <ScrollableSection
+    columns={Array []}
+    rowId={1}
+  />
+  <RightStickySection
+    columns={
+      Array [
+        <ScrollSyncColumn
+          className=""
+          name="a"
+          stickyAlign="right"
+          width="150px"
+        >
+          Row A / Column A
+        </ScrollSyncColumn>,
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`ScrollSyncRow should render columns in the scrollable section if no sticky align is specified 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "display": "flex",
+      "minHeight": "50px",
+      "overflow": "hidden",
+    }
+  }
+>
+  <LeftStickySection
+    columns={Array []}
+  />
+  <ScrollableSection
+    columns={
+      Array [
+        <ScrollSyncColumn
+          className=""
+          name="a"
+          width="150px"
+        >
+          Row A / Column A
+        </ScrollSyncColumn>,
+      ]
+    }
+    rowId={1}
+  />
+  <RightStickySection
+    columns={Array []}
+  />
+</div>
+`;
+
+exports[`ScrollSyncRow should render its default content 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "display": "flex",
+      "minHeight": "50px",
+      "overflow": "hidden",
+    }
+  }
+>
+  <LeftStickySection
+    columns={Array []}
+  />
+  <ScrollableSection
+    columns={Array []}
+    rowId="1"
+  />
+  <RightStickySection
+    columns={Array []}
+  />
+</div>
+`;
