@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RightStickySection should render its default content 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flex": "0 0 auto",
+      "position": "sticky",
+      "right": "0",
+    }
+  }
+/>
+`;
+
+exports[`RightStickySection should render the given columns 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flex": "0 0 auto",
+      "position": "sticky",
+      "right": "0",
+    }
+  }
+>
+  <ScrollSyncColumn
+    className=""
+    key="a"
+    name="a"
+    width="150px"
+  >
+    Column A
+  </ScrollSyncColumn>
+  <ScrollSyncColumn
+    className=""
+    key="b"
+    name="b"
+    width="150px"
+  >
+    Column B
+  </ScrollSyncColumn>
+</div>
+`;
