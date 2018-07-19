@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import ScrollSyncTableCell from '../../ScrollSyncCell';
 import LeftStickySection from './Sections/LeftStickySection';
 import RightStickySection from './Sections/RightStickySection';
@@ -28,7 +29,7 @@ class ScrollSyncRow extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.rowId = props.rowId;
+    this.rowId = Number(props.rowId);
   }
 
   componentWillMount() {
@@ -132,5 +133,15 @@ class ScrollSyncRow extends PureComponent {
     );
   }
 }
+
+ScrollSyncRow.propTypes = {
+  columns: PropTypes.array,
+  className: PropTypes.any,
+};
+
+ScrollSyncRow.defaultProps = {
+  columns: [],
+  className: '',
+};
 
 export default ScrollSyncRow;
