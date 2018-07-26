@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 const defaultWrapperStyle = {
@@ -75,5 +76,14 @@ class ScrollableSection extends PureComponent {
     );
   }
 }
+
+ScrollableSection.propTypes = {
+  columns: PropTypes.array.isRequired,
+  onScroll: PropTypes.func,
+};
+
+ScrollableSection.defaultProps = {
+  onScroll: () => {},
+};
 
 export default ScrollableSection;

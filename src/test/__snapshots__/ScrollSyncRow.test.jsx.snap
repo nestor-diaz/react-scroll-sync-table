@@ -26,6 +26,7 @@ exports[`ScrollSyncRow should handle rendering when the given cell does not matc
         </ScrollSyncColumn>,
       ]
     }
+    onScroll={[Function]}
     rowId={1}
   />
   <RightStickySection
@@ -60,6 +61,7 @@ exports[`ScrollSyncRow should render a header row when it is specified with the 
         </ScrollSyncColumn>,
       ]
     }
+    onScroll={[Function]}
     rowId={0}
   />
   <RightStickySection
@@ -95,6 +97,7 @@ exports[`ScrollSyncRow should render columns in the left sticky section 1`] = `
   />
   <ScrollableSection
     columns={Array []}
+    onScroll={[Function]}
     rowId={1}
   />
   <RightStickySection
@@ -119,6 +122,7 @@ exports[`ScrollSyncRow should render columns in the rigth sticky section 1`] = `
   />
   <ScrollableSection
     columns={Array []}
+    onScroll={[Function]}
     rowId={1}
   />
   <RightStickySection
@@ -164,6 +168,7 @@ exports[`ScrollSyncRow should render columns in the scrollable section if no sti
         </ScrollSyncColumn>,
       ]
     }
+    onScroll={[Function]}
     rowId={1}
   />
   <RightStickySection
@@ -188,6 +193,7 @@ exports[`ScrollSyncRow should render its default content 1`] = `
   />
   <ScrollableSection
     columns={Array []}
+    onScroll={[Function]}
     rowId="1"
   />
   <RightStickySection
