@@ -74,7 +74,6 @@ exports[`ScrollSyncTable should render the given columns and rows 1`] = `
       Array [
         <ScrollSyncRow
           className=""
-          columns={Array []}
         >
           <ScrollSyncCell
             column="a"

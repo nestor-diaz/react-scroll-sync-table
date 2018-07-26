@@ -11,6 +11,9 @@ const defaultSectionStyle = {
 
 class ScrollableSection extends PureComponent {
   rowId = -1;
+  state = {
+    showScrollTrack: false,
+  };
 
   constructor(props) {
     super(props);
@@ -21,32 +24,24 @@ class ScrollableSection extends PureComponent {
   }
 
   componentDidUpdate() {
-    this.preventChangingCurrentRow = true;
     this.scrollableArea.scrollLeft(this.props.scrollLeft);
   }
+
+  handleOnMouseEnter = () => this.setState({ showScrollTrack: true });
+
+  handleOnMouseLeave = () => this.setState({ showScrollTrack: false });
 
   handleOnScrollSection = () => {
     const scrollLeft = this.scrollableArea.getScrollLeft();
 
-    this.props.onScroll(
-      {
-        isScrollingOnSameRow: this.preventChangingCurrentRow,
-        rowBeingScrolled: this.rowId,
-        scrollLeft,
-      },
-      () => {
-        this.preventChangingCurrentRow = false;
-      }
-    );
+    this.props.onScroll({ scrollLeft });
   };
 
   renderScrollView = ({ style, ...props }) => {
-    const isScrollingCurrentRow = this.rowId === this.props.rowBeingScrolled;
+    const { showScrollTrack } = this.state;
     const showScrollTracks = { marginBottom: '0' };
     const hideScrollTracks = { marginBottom: '-18px' };
-    const customStyles = isScrollingCurrentRow
-      ? showScrollTracks
-      : hideScrollTracks;
+    const customStyles = showScrollTrack ? showScrollTracks : hideScrollTracks;
 
     return (
       <div
@@ -65,7 +60,11 @@ class ScrollableSection extends PureComponent {
     const { columns } = this.props;
 
     return (
-      <div style={defaultWrapperStyle}>
+      <div
+        id="scrollable-wrapper"
+        style={defaultWrapperStyle}
+        onMouseEnter={this.handleOnMouseEnter}
+        onMouseLeave={this.handleOnMouseLeave}>
         <Scrollbars
           renderView={this.renderScrollView}
           onScroll={this.handleOnScrollSection}

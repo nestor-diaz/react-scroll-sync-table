@@ -56,22 +56,12 @@ describe('ScrollSyncBody', () => {
       <ScrollSyncBody columns={columns} rows={rows} />
     );
     const HeaderRow = ScrollSyncBodyComponent.find('ScrollSyncRow').first();
-    const scrollEventCallback = jest.fn();
 
-    HeaderRow.prop('onScroll')(
-      {
-        isScrollingOnSameRow: true,
-        rowBeingScrolled: 0,
-        scrollLeft: 10,
-      },
-      scrollEventCallback
-    );
+    HeaderRow.prop('onScroll')({ scrollLeft: 10 });
 
     expect(ScrollSyncBodyComponent.state()).toEqual({
       scrollLeft: 10,
-      rowBeingScrolled: null,
     });
-    expect(scrollEventCallback).toHaveBeenCalled();
   });
 
   test('should update the row being scrolled when handleScrollEvent is called from a different row', () => {
@@ -81,25 +71,14 @@ describe('ScrollSyncBody', () => {
 
     ScrollSyncBodyComponent.setState({
       scrollLeft: 10,
-      rowBeingScrolled: 0,
     });
 
     const HeaderRow = ScrollSyncBodyComponent.find('ScrollSyncRow').first();
-    const scrollEventCallback = jest.fn();
 
-    HeaderRow.prop('onScroll')(
-      {
-        isScrollingOnSameRow: false,
-        rowBeingScrolled: 1,
-        scrollLeft: 20,
-      },
-      scrollEventCallback
-    );
+    HeaderRow.prop('onScroll')({ scrollLeft: 20 });
 
     expect(ScrollSyncBodyComponent.state()).toEqual({
       scrollLeft: 20,
-      rowBeingScrolled: 1,
     });
-    expect(scrollEventCallback).toHaveBeenCalled();
   });
 });

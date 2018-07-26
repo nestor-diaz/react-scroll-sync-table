@@ -26,7 +26,6 @@ exports[`ScrollSyncBody should pass the provided class names to the rows 1`] = `
       isSticky={false}
       key="header"
       onScroll={[Function]}
-      rowBeingScrolled={null}
       rowId={0}
       scrollLeft={0}
     />
@@ -38,10 +37,22 @@ exports[`ScrollSyncBody should pass the provided class names to the rows 1`] = `
       className=""
       column="a"
       columnClassName="column-class-name"
-      columns={Array []}
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
       key="0"
       onScroll={[Function]}
-      rowBeingScrolled={null}
       rowId={1}
       scrollLeft={0}
     />
@@ -53,10 +64,22 @@ exports[`ScrollSyncBody should pass the provided class names to the rows 1`] = `
       className=""
       column="b"
       columnClassName="column-class-name"
-      columns={Array []}
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
       key="1"
       onScroll={[Function]}
-      rowBeingScrolled={null}
       rowId={2}
       scrollLeft={0}
     />
@@ -77,7 +100,6 @@ exports[`ScrollSyncBody should render its default content 1`] = `
       isSticky={false}
       key="header"
       onScroll={[Function]}
-      rowBeingScrolled={null}
       rowId={0}
       scrollLeft={0}
     />
@@ -111,7 +133,6 @@ exports[`ScrollSyncBody should render the given columns and rows 1`] = `
       isSticky={false}
       key="header"
       onScroll={[Function]}
-      rowBeingScrolled={null}
       rowId={0}
       scrollLeft={0}
     />
@@ -123,10 +144,22 @@ exports[`ScrollSyncBody should render the given columns and rows 1`] = `
       className=""
       column="a"
       columnClassName=""
-      columns={Array []}
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
       key="0"
       onScroll={[Function]}
-      rowBeingScrolled={null}
       rowId={1}
       scrollLeft={0}
     />
@@ -138,10 +171,22 @@ exports[`ScrollSyncBody should render the given columns and rows 1`] = `
       className=""
       column="b"
       columnClassName=""
-      columns={Array []}
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
       key="1"
       onScroll={[Function]}
-      rowBeingScrolled={null}
       rowId={2}
       scrollLeft={0}
     />
@@ -175,7 +220,6 @@ exports[`ScrollSyncBody should set isSticky when stickHeader is provided 1`] = `
       isSticky={true}
       key="header"
       onScroll={[Function]}
-      rowBeingScrolled={null}
       rowId={0}
       scrollLeft={0}
     />
@@ -187,10 +231,22 @@ exports[`ScrollSyncBody should set isSticky when stickHeader is provided 1`] = `
       className=""
       column="a"
       columnClassName=""
-      columns={Array []}
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
       key="0"
       onScroll={[Function]}
-      rowBeingScrolled={null}
       rowId={1}
       scrollLeft={0}
     />
@@ -202,10 +258,22 @@ exports[`ScrollSyncBody should set isSticky when stickHeader is provided 1`] = `
       className=""
       column="b"
       columnClassName=""
-      columns={Array []}
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
       key="1"
       onScroll={[Function]}
-      rowBeingScrolled={null}
       rowId={2}
       scrollLeft={0}
     />

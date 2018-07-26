@@ -194,7 +194,7 @@ exports[`ScrollSyncRow should render its default content 1`] = `
   <ScrollableSection
     columns={Array []}
     onScroll={[Function]}
-    rowId="1"
+    rowId={1}
   />
   <RightStickySection
     columns={Array []}

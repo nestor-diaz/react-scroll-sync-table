@@ -40,4 +40,34 @@ describe('ScrollableSection', () => {
 
     expect(onScroll).toHaveBeenCalled();
   });
+
+  test('should show the scroll tracks when the mouse enters to the section', () => {
+    const ScrollableSectionComponent = shallow(
+      <ScrollableSection columns={[]} />
+    );
+    const ScrollableWrapper = ScrollableSectionComponent.find(
+      '#scrollable-wrapper'
+    );
+
+    ScrollableWrapper.prop('onMouseEnter')();
+
+    expect(ScrollableSectionComponent.state()).toEqual({
+      showScrollTrack: true,
+    });
+  });
+
+  test('should hide the scroll tracks when the mouse leaves the section', () => {
+    const ScrollableSectionComponent = shallow(
+      <ScrollableSection columns={[]} />
+    );
+    const ScrollableWrapper = ScrollableSectionComponent.find(
+      '#scrollable-wrapper'
+    );
+
+    ScrollableWrapper.prop('onMouseLeave')();
+
+    expect(ScrollableSectionComponent.state()).toEqual({
+      showScrollTrack: false,
+    });
+  });
 });
