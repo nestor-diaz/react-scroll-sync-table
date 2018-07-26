@@ -82,4 +82,8 @@ ScrollableSection.propTypes = {
   onScroll: PropTypes.func,
 };
 
+ScrollableSection.defaultProps = {
+  onScroll: () => {},
+};
+
 export default ScrollableSection;
