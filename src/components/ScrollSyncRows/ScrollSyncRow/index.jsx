@@ -104,14 +104,7 @@ class ScrollSyncRow extends PureComponent {
   };
 
   render() {
-    const {
-      rowId,
-      isSticky,
-      rowBeingScrolled,
-      scrollLeft,
-      onScroll,
-      className,
-    } = this.props;
+    const { isSticky, scrollLeft, onScroll, className } = this.props;
     const stickyStyleProps = isSticky ? stickyStyle : {};
     const styles = {
       ...defaultRowStyle,
@@ -122,9 +115,8 @@ class ScrollSyncRow extends PureComponent {
       <div className={className} style={styles}>
         <LeftStickySection columns={this.leftStickySection} />
         <ScrollableSection
-          rowId={rowId}
+          rowId={this.rowId}
           columns={this.scrollableSection}
-          rowBeingScrolled={rowBeingScrolled}
           onScroll={onScroll}
           scrollLeft={scrollLeft}
         />
@@ -140,7 +132,6 @@ ScrollSyncRow.propTypes = {
 };
 
 ScrollSyncRow.defaultProps = {
-  columns: [],
   className: '',
 };
 

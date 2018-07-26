@@ -5,20 +5,10 @@ import ScrollSyncRow from '../ScrollSyncRows/ScrollSyncRow';
 class ScrollSyncBody extends PureComponent {
   state = {
     scrollLeft: 0,
-    rowBeingScrolled: null,
   };
 
-  handleScrollEvent = (
-    { isScrollingOnSameRow, rowBeingScrolled, scrollLeft },
-    scrollEventCallback
-  ) => {
-    scrollEventCallback();
-
-    if (isScrollingOnSameRow) {
-      this.setState({ scrollLeft });
-    } else {
-      this.setState({ rowBeingScrolled, scrollLeft });
-    }
+  handleScrollEvent = ({ scrollLeft }) => {
+    this.setState({ scrollLeft });
   };
 
   renderHeaderRow = () => {
@@ -28,7 +18,7 @@ class ScrollSyncBody extends PureComponent {
       headerClassName,
       headerColumnClassName,
     } = this.props;
-    const { rowBeingScrolled, scrollLeft } = this.state;
+    const { scrollLeft } = this.state;
 
     return (
       <ScrollSyncRow
@@ -40,7 +30,6 @@ class ScrollSyncBody extends PureComponent {
         key="header"
         onScroll={this.handleScrollEvent}
         rowId={ScrollSyncRow.HEADER_ROW_ID}
-        rowBeingScrolled={rowBeingScrolled}
         scrollLeft={scrollLeft}
       />
     );
@@ -52,7 +41,7 @@ class ScrollSyncBody extends PureComponent {
 
   render() {
     const { rows, columns, rowClassName, columnClassName } = this.props;
-    const { rowBeingScrolled, scrollLeft } = this.state;
+    const { scrollLeft } = this.state;
 
     return (
       <Fragment>
@@ -65,7 +54,6 @@ class ScrollSyncBody extends PureComponent {
             className: rowClassName,
             columnClassName,
             columns,
-            rowBeingScrolled,
             scrollLeft,
             ...row.props,
           })

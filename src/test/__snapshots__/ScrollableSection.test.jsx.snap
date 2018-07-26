@@ -2,6 +2,9 @@
 
 exports[`ScrollableSection should render its default content 1`] = `
 <div
+  id="scrollable-wrapper"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     Object {
       "flex": "1 1 auto",
@@ -31,6 +34,9 @@ exports[`ScrollableSection should render its default content 1`] = `
 
 exports[`ScrollableSection should render the given columns 1`] = `
 <div
+  id="scrollable-wrapper"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
   style={
     Object {
       "flex": "1 1 auto",
