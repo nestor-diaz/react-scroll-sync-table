@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
 
@@ -57,7 +57,7 @@ class ScrollableSection extends PureComponent {
   };
 
   render() {
-    const { columns } = this.props;
+    const { cells } = this.props;
 
     return (
       <div
@@ -69,7 +69,7 @@ class ScrollableSection extends PureComponent {
           renderView={this.renderScrollView}
           onScroll={this.handleOnScrollSection}
           ref={this.setScrollableAreaRef}>
-          {columns.map(column => column)}
+          {cells.map((cell, index) => (<Fragment key={`scrollSection-${index}`}>{cell}</Fragment>))}
         </Scrollbars>
       </div>
     );
@@ -77,11 +77,12 @@ class ScrollableSection extends PureComponent {
 }
 
 ScrollableSection.propTypes = {
-  columns: PropTypes.array.isRequired,
+  cells: PropTypes.array,
   onScroll: PropTypes.func,
 };
 
 ScrollableSection.defaultProps = {
+  cells: [],
   onScroll: () => {},
 };
 

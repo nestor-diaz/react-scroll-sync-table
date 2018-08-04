@@ -14,6 +14,12 @@
   padding: 15px;
 }
 
+.headerColumn {
+  border-right: 1px solid #989a9b;
+  text-align: center;
+  padding: 15px;
+}
+
 .headerRow {
   background: #cacbcc;
   border: none;
