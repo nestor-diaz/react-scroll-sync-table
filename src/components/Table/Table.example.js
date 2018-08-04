@@ -18,41 +18,50 @@ class TableExample extends PureComponent {
 
   render() {
     const { isCollapsed } = this.state;
-    const columns = [{
-      dataKey: 'a',
-      label: 'a',
-      stickyAlign: 'left',
-      width: '50',
-    }, {
-      dataKey: 'b',
-      label: 'b',
-      width: '150',
-    }, {
-      dataKey: 'c',
-      label: 'c',
-      width: '150',
-    }, {
-      dataKey: 'd',
-      label: 'd',
-      width: '150',
-    }, {
-      dataKey: 'e',
-      label: 'e',
-      width: '150',
-    }, {
-      dataKey: 'f',
-      label: 'f',
-      width: '150',
-    }, {
-      dataKey: 'g',
-      label: 'g',
-      width: '150',
-    }, {
-      dataKey: 'h',
-      label: 'h',
-      width: '50',
-      stickyAlign: 'right',
-    }];
+    const columns = [
+      {
+        dataKey: 'a',
+        label: 'a',
+        stickyAlign: 'left',
+        width: '50',
+      },
+      {
+        dataKey: 'b',
+        label: 'b',
+        width: '150',
+      },
+      {
+        dataKey: 'c',
+        label: 'c',
+        width: '150',
+      },
+      {
+        dataKey: 'd',
+        label: 'd',
+        width: '150',
+      },
+      {
+        dataKey: 'e',
+        label: 'e',
+        width: '150',
+      },
+      {
+        dataKey: 'f',
+        label: 'f',
+        width: '150',
+      },
+      {
+        dataKey: 'g',
+        label: 'g',
+        width: '150',
+      },
+      {
+        dataKey: 'h',
+        label: 'h',
+        width: '50',
+        stickyAlign: 'right',
+      },
+    ];
 
     return (
       <div>

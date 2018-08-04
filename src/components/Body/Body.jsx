@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import BaseRow from '../Row/BaseRow';
 
+/* eslint-disable react/no-array-index-key */
+
 class Body extends Component {
   state = {
     scrollLeft: 0,
@@ -15,9 +17,10 @@ class Body extends Component {
     const headerRowData = {};
     const { columns, columnHeaderRenderer } = this.props;
 
-    columns.forEach((column) => {
-      headerRowData[column.dataKey] =
-        columnHeaderRenderer ? columnHeaderRenderer({ ...column }) : column.label;
+    columns.forEach(column => {
+      headerRowData[column.dataKey] = columnHeaderRenderer
+        ? columnHeaderRenderer({ ...column })
+        : column.label;
     });
 
     return headerRowData;
@@ -31,7 +34,7 @@ class Body extends Component {
       headerColumnClassName,
       rows,
       rowClassName,
-      stickHeader
+      stickHeader,
     } = this.props;
     const { scrollLeft } = this.state;
 
@@ -48,18 +51,18 @@ class Body extends Component {
           rowData={this.buildHeaderRowData()}
           scrollLeft={scrollLeft}
         />
-        {rows.map((row, rowIndex) =>
+        {rows.map((row, rowIndex) => (
           <BaseRow
             columns={columns}
             columnClassName={columnClassName}
             className={rowClassName}
-            key={rowIndex}
+            key={`row-${rowIndex}`}
             onScroll={this.handleScrollEvent}
             rowId={rowIndex + 1}
             rowData={row.props.rowData}
             scrollLeft={scrollLeft}
           />
-        )}
+        ))}
       </Fragment>
     );
   }

@@ -16,7 +16,7 @@ const stickyStyle = {
   top: '0',
   zIndex: '1000',
 };
-const cellDefaultStyles = (width) => ({
+const cellDefaultStyles = width => ({
   width: `${width}px`,
   flex: `0 0 ${width}px`,
 });
@@ -37,7 +37,7 @@ class BaseRow extends Component {
     const rightStickySection = [];
     const scrollableSection = [];
 
-    columns.forEach((column) => {
+    columns.forEach(column => {
       const columnWidth = column.width || BaseRow.DEFAULT_COLUMN_WIDTH;
       const columnDataKey = column.dataKey || '';
       const cellContent = rowData[columnDataKey] || '';
@@ -64,13 +64,17 @@ class BaseRow extends Component {
     return {
       leftStickySection,
       rightStickySection,
-      scrollableSection
+      scrollableSection,
     };
   }
 
   render() {
     const { className, isSticky, onScroll, rowId, scrollLeft } = this.props;
-    const { leftStickySection, rightStickySection, scrollableSection } = this.state;
+    const {
+      leftStickySection,
+      rightStickySection,
+      scrollableSection,
+    } = this.state;
     const stickyStyleProps = isSticky ? stickyStyle : {};
     const styles = {
       ...defaultRowStyle,

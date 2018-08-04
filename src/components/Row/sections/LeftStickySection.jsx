@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+/* eslint-disable react/no-array-index-key */
+
 const defaultSectionStyle = {
   display: 'flex',
   flex: '0 0 auto',
@@ -9,7 +11,9 @@ const defaultSectionStyle = {
 };
 const LeftStickySection = ({ cells }) => (
   <div style={defaultSectionStyle}>
-    { cells.map((cell, index) => <Fragment key={`leftSection-${index}`}>{cell}</Fragment>) }
+    {cells.map((cell, index) => (
+      <Fragment key={`leftSection-${index}`}>{cell}</Fragment>
+    ))}
   </div>
 );
 
@@ -18,7 +22,7 @@ LeftStickySection.propTypes = {
 };
 
 LeftStickySection.defaultProps = {
-  cells: []
+  cells: [],
 };
 
 export default LeftStickySection;

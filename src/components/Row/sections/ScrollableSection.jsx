@@ -2,6 +2,8 @@ import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
 
+/* eslint-disable react/no-array-index-key */
+
 const defaultWrapperStyle = {
   flex: '1 1 auto',
 };
@@ -69,7 +71,9 @@ class ScrollableSection extends PureComponent {
           renderView={this.renderScrollView}
           onScroll={this.handleOnScrollSection}
           ref={this.setScrollableAreaRef}>
-          {cells.map((cell, index) => (<Fragment key={`scrollSection-${index}`}>{cell}</Fragment>))}
+          {cells.map((cell, index) => (
+            <Fragment key={`scrollSection-${index}`}>{cell}</Fragment>
+          ))}
         </Scrollbars>
       </div>
     );
