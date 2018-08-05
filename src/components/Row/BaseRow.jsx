@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  LeftStickySection,
-  RightStickySection,
+  LeftSection,
+  RightSection,
   ScrollableSection,
 } from './sections';
 
@@ -83,14 +83,14 @@ class BaseRow extends Component {
 
     return (
       <div className={className} style={styles}>
-        <LeftStickySection cells={leftStickySection} />
+        <LeftSection cells={leftStickySection} />
         <ScrollableSection
           rowId={rowId}
           cells={scrollableSection}
           onScroll={onScroll}
           scrollLeft={scrollLeft}
         />
-        <RightStickySection cells={rightStickySection} />
+        <RightSection cells={rightStickySection} />
       </div>
     );
   }
