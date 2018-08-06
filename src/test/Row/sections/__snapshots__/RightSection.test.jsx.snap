@@ -27,14 +27,18 @@ exports[`RightSection should render the given cells 1`] = `
   <React.Fragment
     key="rightSection-0"
   >
-    <div>
+    <div
+      key="a"
+    >
       Cell 5
     </div>
   </React.Fragment>
   <React.Fragment
     key="rightSection-1"
   >
-    <div>
+    <div
+      key="b"
+    >
       Cell 6
     </div>
   </React.Fragment>
