@@ -10,7 +10,7 @@ class Table extends PureComponent {
   };
 
   getRowsAndColumns = () => {
-    const { columns = [], children } = this.props;
+    const { columns = [], children = [] } = this.props;
     const rows = children.filter(child => child.type === Row);
 
     return { columns, rows };

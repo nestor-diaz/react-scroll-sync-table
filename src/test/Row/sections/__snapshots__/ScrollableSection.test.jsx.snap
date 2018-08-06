@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollableSection should render its default content 1`] = `
+<div
+  id="scrollable-wrapper"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    Object {
+      "flex": "1 1 auto",
+    }
+  }
+>
+  <Scrollbars
+    autoHeight={false}
+    autoHeightMax={200}
+    autoHeightMin={0}
+    autoHide={false}
+    autoHideDuration={200}
+    autoHideTimeout={1000}
+    hideTracksWhenNotNeeded={false}
+    onScroll={[Function]}
+    renderThumbHorizontal={[Function]}
+    renderThumbVertical={[Function]}
+    renderTrackHorizontal={[Function]}
+    renderTrackVertical={[Function]}
+    renderView={[Function]}
+    tagName="div"
+    thumbMinSize={30}
+    universal={false}
+  />
+</div>
+`;
+
+exports[`ScrollableSection should render the given cells 1`] = `
+<div
+  id="scrollable-wrapper"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  style={
+    Object {
+      "flex": "1 1 auto",
+    }
+  }
+>
+  <Scrollbars
+    autoHeight={false}
+    autoHeightMax={200}
+    autoHeightMin={0}
+    autoHide={false}
+    autoHideDuration={200}
+    autoHideTimeout={1000}
+    hideTracksWhenNotNeeded={false}
+    onScroll={[Function]}
+    renderThumbHorizontal={[Function]}
+    renderThumbVertical={[Function]}
+    renderTrackHorizontal={[Function]}
+    renderTrackVertical={[Function]}
+    renderView={[Function]}
+    tagName="div"
+    thumbMinSize={30}
+    universal={false}
+  >
+    <React.Fragment
+      key="scrollSection-0"
+    >
+      <div>
+        Cell 3
+      </div>
+    </React.Fragment>
+    <React.Fragment
+      key="scrollSection-1"
+    >
+      <div>
+        Cell 4
+      </div>
+    </React.Fragment>
+  </Scrollbars>
+</div>
+`;

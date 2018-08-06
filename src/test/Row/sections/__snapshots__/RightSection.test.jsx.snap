@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RightSection should render its default content 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flex": "0 0 auto",
+      "position": "sticky",
+      "right": "0",
+    }
+  }
+/>
+`;
+
+exports[`RightSection should render the given cells 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flex": "0 0 auto",
+      "position": "sticky",
+      "right": "0",
+    }
+  }
+>
+  <React.Fragment
+    key="rightSection-0"
+  >
+    <div>
+      Cell 5
+    </div>
+  </React.Fragment>
+  <React.Fragment
+    key="rightSection-1"
+  >
+    <div>
+      Cell 6
+    </div>
+  </React.Fragment>
+</div>
+`;

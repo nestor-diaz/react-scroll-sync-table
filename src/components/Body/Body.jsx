@@ -56,7 +56,7 @@ class Body extends Component {
             columns={columns}
             columnClassName={columnClassName}
             className={rowClassName}
-            key={`row-${rowIndex}`}
+            key={`syncScrollRow-${rowIndex}`}
             onScroll={this.handleScrollEvent}
             rowId={rowIndex + 1}
             rowData={row.props.rowData}

@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table should pass down the given columns to the table body 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "height": "auto",
+      "width": "100%",
+    }
+  }
+>
+  <Body
+    columnClassName=""
+    columnHeaderRenderer={null}
+    columns={
+      Array [
+        Object {
+          "dataKey": "a",
+          "label": "a",
+          "stickyAlign": "left",
+        },
+      ]
+    }
+    headerColumnClassName=""
+    headerRowClassName=""
+    rowClassName=""
+    rows={Array []}
+    stickHeader={false}
+  />
+</div>
+`;
+
+exports[`Table should pass down the given rows to the table body 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "height": "auto",
+      "width": "100%",
+    }
+  }
+>
+  <Body
+    columnClassName=""
+    columnHeaderRenderer={null}
+    columns={Array []}
+    headerColumnClassName=""
+    headerRowClassName=""
+    rowClassName=""
+    rows={
+      Array [
+        <Row
+          rowData={Object {}}
+        />,
+        <Row
+          rowData={Object {}}
+        />,
+      ]
+    }
+    stickHeader={false}
+  />
+</div>
+`;
+
+exports[`Table should render its default content 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "height": "auto",
+      "width": "100%",
+    }
+  }
+>
+  <Body
+    columnClassName=""
+    columnHeaderRenderer={null}
+    columns={Array []}
+    headerColumnClassName=""
+    headerRowClassName=""
+    rowClassName=""
+    rows={Array []}
+    stickHeader={false}
+  />
+</div>
+`;

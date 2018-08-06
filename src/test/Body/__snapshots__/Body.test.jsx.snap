@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Body should call the provided column header renderer 1`] = `
+<React.Fragment>
+  <BaseRow
+    className=""
+    columnClassName=""
+    columns={
+      Array [
+        Object {
+          "dataKey": "a",
+          "label": "a",
+        },
+        Object {
+          "dataKey": "b",
+          "label": "b",
+        },
+      ]
+    }
+    isHeader={true}
+    isSticky={false}
+    onScroll={[Function]}
+    rowData={
+      Object {
+        "a": <div>
+          a
+        </div>,
+        "b": <div>
+          b
+        </div>,
+      }
+    }
+    rowId={0}
+    scrollLeft={0}
+  />
+</React.Fragment>
+`;
+
+exports[`Body should pass the column labels to the header row if not renderer is provided 1`] = `
+<React.Fragment>
+  <BaseRow
+    className=""
+    columnClassName=""
+    columns={
+      Array [
+        Object {
+          "dataKey": "a",
+          "label": "a",
+        },
+        Object {
+          "dataKey": "b",
+          "label": "b",
+        },
+      ]
+    }
+    isHeader={true}
+    isSticky={false}
+    onScroll={[Function]}
+    rowData={
+      Object {
+        "a": "a",
+        "b": "b",
+      }
+    }
+    rowId={0}
+    scrollLeft={0}
+  />
+</React.Fragment>
+`;
+
+exports[`Body should render a BaseRow for each declared Row in the table 1`] = `
+<React.Fragment>
+  <BaseRow
+    className=""
+    columnClassName=""
+    columns={Array []}
+    isHeader={true}
+    isSticky={false}
+    onScroll={[Function]}
+    rowData={Object {}}
+    rowId={0}
+    scrollLeft={0}
+  />
+  <BaseRow
+    className=""
+    columnClassName=""
+    columns={Array []}
+    isHeader={false}
+    isSticky={false}
+    key="syncScrollRow-0"
+    onScroll={[Function]}
+    rowData={Object {}}
+    rowId={1}
+    scrollLeft={0}
+  />
+  <BaseRow
+    className=""
+    columnClassName=""
+    columns={Array []}
+    isHeader={false}
+    isSticky={false}
+    key="syncScrollRow-1"
+    onScroll={[Function]}
+    rowData={Object {}}
+    rowId={2}
+    scrollLeft={0}
+  />
+  <BaseRow
+    className=""
+    columnClassName=""
+    columns={Array []}
+    isHeader={false}
+    isSticky={false}
+    key="syncScrollRow-2"
+    onScroll={[Function]}
+    rowData={Object {}}
+    rowId={3}
+    scrollLeft={0}
+  />
+</React.Fragment>
+`;
+
+exports[`Body should render its default content 1`] = `
+<React.Fragment>
+  <BaseRow
+    className=""
+    columnClassName=""
+    columns={Array []}
+    isHeader={true}
+    isSticky={false}
+    onScroll={[Function]}
+    rowData={Object {}}
+    rowId={0}
+    scrollLeft={0}
+  />
+</React.Fragment>
+`;
+
+exports[`Body should stick the header when stickHeader is provided 1`] = `
+<React.Fragment>
+  <BaseRow
+    className=""
+    columnClassName=""
+    columns={Array []}
+    isHeader={true}
+    isSticky={true}
+    onScroll={[Function]}
+    rowData={Object {}}
+    rowId={0}
+    scrollLeft={0}
+  />
+</React.Fragment>
+`;

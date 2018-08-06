@@ -9,7 +9,7 @@ const defaultSectionStyle = {
   position: 'sticky',
   left: '0',
 };
-const LeftStickySection = ({ cells }) => (
+const LeftSection = ({ cells }) => (
   <div style={defaultSectionStyle}>
     {cells.map((cell, index) => (
       <Fragment key={`leftSection-${index}`}>{cell}</Fragment>
@@ -17,12 +17,12 @@ const LeftStickySection = ({ cells }) => (
   </div>
 );
 
-LeftStickySection.propTypes = {
+LeftSection.propTypes = {
   cells: PropTypes.array,
 };
 
-LeftStickySection.defaultProps = {
+LeftSection.defaultProps = {
   cells: [],
 };
 
-export default LeftStickySection;
+export default LeftSection;
