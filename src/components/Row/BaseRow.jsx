@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { LeftSection, RightSection, ScrollableSection } from './sections';
+import {
+  LeftSection,
+  RightSection,
+  ScrollableSection,
+} from './sections';
 
 const defaultRowStyle = {
   display: 'flex',
