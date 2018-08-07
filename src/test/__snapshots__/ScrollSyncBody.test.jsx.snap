@@ -1,0 +1,282 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollSyncBody should pass the provided class names to the rows 1`] = `
+<React.Fragment>
+  <React.Fragment
+    key="0"
+  >
+    <ScrollSyncRow
+      className="header-class-name"
+      columnClassName="header-column-class-name"
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
+      isHeader={true}
+      isSticky={false}
+      key="header"
+      onScroll={[Function]}
+      rowId={0}
+      scrollLeft={0}
+    />
+  </React.Fragment>
+  <React.Fragment
+    key="0"
+  >
+    <ScrollSyncRow
+      className=""
+      column="a"
+      columnClassName="column-class-name"
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
+      key="0"
+      onScroll={[Function]}
+      rowId={1}
+      scrollLeft={0}
+    />
+  </React.Fragment>
+  <React.Fragment
+    key="1"
+  >
+    <ScrollSyncRow
+      className=""
+      column="b"
+      columnClassName="column-class-name"
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
+      key="1"
+      onScroll={[Function]}
+      rowId={2}
+      scrollLeft={0}
+    />
+  </React.Fragment>
+</React.Fragment>
+`;
+
+exports[`ScrollSyncBody should render its default content 1`] = `
+<React.Fragment>
+  <React.Fragment
+    key="0"
+  >
+    <ScrollSyncRow
+      className=""
+      columnClassName=""
+      columns={Array []}
+      isHeader={true}
+      isSticky={false}
+      key="header"
+      onScroll={[Function]}
+      rowId={0}
+      scrollLeft={0}
+    />
+  </React.Fragment>
+</React.Fragment>
+`;
+
+exports[`ScrollSyncBody should render the given columns and rows 1`] = `
+<React.Fragment>
+  <React.Fragment
+    key="0"
+  >
+    <ScrollSyncRow
+      className=""
+      columnClassName=""
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
+      isHeader={true}
+      isSticky={false}
+      key="header"
+      onScroll={[Function]}
+      rowId={0}
+      scrollLeft={0}
+    />
+  </React.Fragment>
+  <React.Fragment
+    key="0"
+  >
+    <ScrollSyncRow
+      className=""
+      column="a"
+      columnClassName=""
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
+      key="0"
+      onScroll={[Function]}
+      rowId={1}
+      scrollLeft={0}
+    />
+  </React.Fragment>
+  <React.Fragment
+    key="1"
+  >
+    <ScrollSyncRow
+      className=""
+      column="b"
+      columnClassName=""
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
+      key="1"
+      onScroll={[Function]}
+      rowId={2}
+      scrollLeft={0}
+    />
+  </React.Fragment>
+</React.Fragment>
+`;
+
+exports[`ScrollSyncBody should set isSticky when stickHeader is provided 1`] = `
+<React.Fragment>
+  <React.Fragment
+    key="0"
+  >
+    <ScrollSyncRow
+      className=""
+      columnClassName=""
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
+      isHeader={true}
+      isSticky={true}
+      key="header"
+      onScroll={[Function]}
+      rowId={0}
+      scrollLeft={0}
+    />
+  </React.Fragment>
+  <React.Fragment
+    key="0"
+  >
+    <ScrollSyncRow
+      className=""
+      column="a"
+      columnClassName=""
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
+      key="0"
+      onScroll={[Function]}
+      rowId={1}
+      scrollLeft={0}
+    />
+  </React.Fragment>
+  <React.Fragment
+    key="1"
+  >
+    <ScrollSyncRow
+      className=""
+      column="b"
+      columnClassName=""
+      columns={
+        Array [
+          <ScrollSyncColumn
+            className=""
+            name="a"
+            width="150px"
+          />,
+          <ScrollSyncColumn
+            className=""
+            name="b"
+            width="150px"
+          />,
+        ]
+      }
+      key="1"
+      onScroll={[Function]}
+      rowId={2}
+      scrollLeft={0}
+    />
+  </React.Fragment>
+</React.Fragment>
+`;
