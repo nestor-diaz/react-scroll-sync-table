@@ -64,18 +64,14 @@ exports[`ScrollableSection should render the given cells 1`] = `
     <React.Fragment
       key="scrollSection-0"
     >
-      <div
-        key="a"
-      >
+      <div>
         Cell 3
       </div>
     </React.Fragment>
     <React.Fragment
       key="scrollSection-1"
     >
-      <div
-        key="b"
-      >
+      <div>
         Cell 4
       </div>
     </React.Fragment>
