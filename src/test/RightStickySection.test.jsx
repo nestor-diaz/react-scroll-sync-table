@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import RightStickySection from '../components/ScrollSyncRows/ScrollSyncRow/Sections/RightStickySection';
+import { RightStickySection } from '../components/ScrollSyncRows/ScrollSyncRow/sections';
 import ScrollSyncColumn from '../components/ScrollSyncColumns/ScrollSyncColumn';
 
 describe('RightStickySection', () => {
   test('should render its default content', () => {
     const RightStickySectionComponent = shallow(
-      <RightStickySection columns={[]} />
+      <RightStickySection cells={[]} />
     );
 
     expect(RightStickySectionComponent).toMatchSnapshot();
@@ -14,15 +14,15 @@ describe('RightStickySection', () => {
 
   test('should render the given columns', () => {
     const columns = [
-      <ScrollSyncColumn key="a" name="a">
+      <ScrollSyncColumn key="a" dataKey="a">
         Column A
       </ScrollSyncColumn>,
-      <ScrollSyncColumn key="b" name="b">
+      <ScrollSyncColumn key="b" dataKey="b">
         Column B
       </ScrollSyncColumn>,
     ];
     const RightStickySectionComponent = shallow(
-      <RightStickySection columns={columns} />
+      <RightStickySection cells={columns} />
     );
 
     expect(RightStickySectionComponent).toMatchSnapshot();

@@ -13,8 +13,8 @@ exports[`ScrollSyncTable should handle rendering when there are not columns neit
   <ScrollSyncBody
     columnClassName=""
     columns={Array []}
-    headerClassName=""
     headerColumnClassName=""
+    headerRowClassName=""
     rowClassName=""
     rows={Array []}
     stickHeader={false}
@@ -35,8 +35,8 @@ exports[`ScrollSyncTable should pass the prop stickHeader to the table body 1`] 
   <ScrollSyncBody
     columnClassName=""
     columns={Array []}
-    headerClassName=""
     headerColumnClassName=""
+    headerRowClassName=""
     rowClassName=""
     rows={Array []}
     stickHeader={true}
@@ -60,15 +60,15 @@ exports[`ScrollSyncTable should render the given columns and rows 1`] = `
       Array [
         <ScrollSyncColumn
           className=""
-          name="a"
+          dataKey="a"
           width="150px"
         >
           A
         </ScrollSyncColumn>,
       ]
     }
-    headerClassName=""
     headerColumnClassName=""
+    headerRowClassName=""
     rowClassName=""
     rows={
       Array [
@@ -101,8 +101,8 @@ exports[`ScrollSyncTable should render with default props 1`] = `
   <ScrollSyncBody
     columnClassName=""
     columns={Array []}
-    headerClassName=""
     headerColumnClassName=""
+    headerRowClassName=""
     rowClassName=""
     rows={Array []}
     stickHeader={false}
@@ -123,8 +123,8 @@ exports[`ScrollSyncTable should render with the given class names 1`] = `
   <ScrollSyncBody
     columnClassName="column-class-name"
     columns={Array []}
-    headerClassName="header-class-name"
     headerColumnClassName="header-column-class-name"
+    headerRowClassName=""
     rowClassName="row-class-name"
     rows={Array []}
     stickHeader={false}

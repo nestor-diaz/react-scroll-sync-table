@@ -6,13 +6,17 @@ import ScrollSyncCell from '../components/ScrollSyncCell';
 
 describe('ScrollSyncRow', () => {
   test('should render its default content', () => {
-    const ScrollSyncRowComponent = shallow(<ScrollSyncRow rowId="1" />);
+    const ScrollSyncRowComponent = shallow(
+      <ScrollSyncRow rowId="1" columns={[]} />
+    );
 
     expect(ScrollSyncRowComponent).toMatchSnapshot();
   });
 
   test('should render columns in the left sticky section', () => {
-    const columns = [<ScrollSyncColumn key="a" name="a" stickyAlign="left" />];
+    const columns = [
+      <ScrollSyncColumn key="a" dataKey="a" stickyAlign="left" />,
+    ];
     const ScrollSyncRowComponent = shallow(
       <ScrollSyncRow columns={columns} rowId={1}>
         <ScrollSyncCell column="a">Row A / Column A</ScrollSyncCell>
@@ -23,7 +27,9 @@ describe('ScrollSyncRow', () => {
   });
 
   test('should render columns in the rigth sticky section', () => {
-    const columns = [<ScrollSyncColumn key="a" name="a" stickyAlign="right" />];
+    const columns = [
+      <ScrollSyncColumn key="a" dataKey="a" stickyAlign="right" />,
+    ];
     const ScrollSyncRowComponent = shallow(
       <ScrollSyncRow columns={columns} rowId={1}>
         <ScrollSyncCell column="a">Row A / Column A</ScrollSyncCell>
@@ -34,7 +40,7 @@ describe('ScrollSyncRow', () => {
   });
 
   test('should render columns in the scrollable section if no sticky align is specified', () => {
-    const columns = [<ScrollSyncColumn key="a" name="a" />];
+    const columns = [<ScrollSyncColumn key="a" dataKey="a" />];
     const ScrollSyncRowComponent = shallow(
       <ScrollSyncRow columns={columns} rowId={1}>
         <ScrollSyncCell column="a">Row A / Column A</ScrollSyncCell>
@@ -46,7 +52,7 @@ describe('ScrollSyncRow', () => {
 
   test('should render a header row when it is specified with the given class name', () => {
     const columns = [
-      <ScrollSyncColumn key="a" name="a">
+      <ScrollSyncColumn key="a" dataKey="a">
         Column A
       </ScrollSyncColumn>,
     ];
@@ -64,7 +70,7 @@ describe('ScrollSyncRow', () => {
 
   test('should handle rendering when the given cell does not match any column', () => {
     const columns = [
-      <ScrollSyncColumn key="a" name="a">
+      <ScrollSyncColumn key="a" dataKey="a">
         Column A
       </ScrollSyncColumn>,
     ];

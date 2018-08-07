@@ -1,38 +1,30 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ScrollSyncBody from '../ScrollSyncBody';
 import ScrollSyncColumns from '../ScrollSyncColumns';
 import ScrollSyncRows from '../ScrollSyncRows';
 
-class ScrollSyncTable extends PureComponent {
+class ScrollSyncTable extends Component {
   tableDefaultStyles = {
     height: 'auto',
     width: '100%',
   };
 
-  constructor(props) {
-    super(props);
-
-    this.childrenArray = React.Children.toArray(props.children);
-  }
-
   getColumns = () => {
-    const columns = this.childrenArray.find(
-      child => child.type === ScrollSyncColumns
-    );
+    const { children } = this.props;
+    const columns = children.find(child => child.type === ScrollSyncColumns);
 
     return React.Children.toArray(columns.props.children);
   };
 
   getRows = () => {
-    const rows = this.childrenArray.find(
-      child => child.type === ScrollSyncRows
-    );
+    const { children } = this.props;
+    const rows = children.find(child => child.type === ScrollSyncRows);
 
     return React.Children.toArray(rows.props.children);
   };
 
-  extractRowsAndColumns = () => {
+  getRowsAndColumns = () => {
     if (React.Children.count(this.props.children) !== 2) {
       return { columns: [], rows: [] };
     }
@@ -45,23 +37,25 @@ class ScrollSyncTable extends PureComponent {
 
   render() {
     const {
-      stickHeader,
+      columnHeaderRenderer,
+      columnClassName,
+      headerRowClassName,
+      headerColumnClassName,
       tableClassName,
       rowClassName,
-      columnClassName,
-      headerClassName,
-      headerColumnClassName,
+      stickHeader,
     } = this.props;
 
     return (
       <div className={tableClassName} style={this.tableDefaultStyles}>
         <ScrollSyncBody
-          stickHeader={stickHeader}
-          rowClassName={rowClassName}
+          columnHeaderRenderer={columnHeaderRenderer}
           columnClassName={columnClassName}
-          headerClassName={headerClassName}
+          headerRowClassName={headerRowClassName}
           headerColumnClassName={headerColumnClassName}
-          {...this.extractRowsAndColumns()}
+          rowClassName={rowClassName}
+          stickHeader={stickHeader}
+          {...this.getRowsAndColumns()}
         />
       </div>
     );
@@ -69,8 +63,14 @@ class ScrollSyncTable extends PureComponent {
 }
 
 ScrollSyncTable.propTypes = {
-  /** Whether you want a sticky header or not */
-  stickHeader: PropTypes.bool,
+  /** The class name to be applied to the table columns */
+  columnClassName: PropTypes.any,
+
+  /** The class name to be applied to the header row */
+  headerRowClassName: PropTypes.any,
+
+  /** The class name to be applied to each header column */
+  headerColumnClassName: PropTypes.any,
 
   /** The class name to be applied to the table */
   tableClassName: PropTypes.any,
@@ -78,23 +78,17 @@ ScrollSyncTable.propTypes = {
   /** The class name to be applied to the table rows */
   rowClassName: PropTypes.any,
 
-  /** The class name to be applied to the table columns */
-  columnClassName: PropTypes.any,
-
-  /** The class name to be applied to the header row */
-  headerClassName: PropTypes.any,
-
-  /** The class name to be applied to the header columns */
-  headerColumnClassName: PropTypes.any,
+  /** Whether you want a sticky header or not */
+  stickHeader: PropTypes.bool,
 };
 
 ScrollSyncTable.defaultProps = {
-  stickHeader: false,
+  columnClassName: '',
+  headerRowClassName: '',
+  headerColumnClassName: '',
   tableClassName: '',
   rowClassName: '',
-  columnClassName: '',
-  headerClassName: '',
-  headerColumnClassName: '',
+  stickHeader: false,
 };
 
 export default ScrollSyncTable;

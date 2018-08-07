@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
 
@@ -9,7 +9,9 @@ const defaultSectionStyle = {
   display: 'flex',
 };
 
-class ScrollableSection extends PureComponent {
+/* eslint-disable react/no-array-index-key */
+
+class ScrollableSection extends Component {
   rowId = -1;
   state = {
     showScrollTrack: false,
@@ -57,7 +59,7 @@ class ScrollableSection extends PureComponent {
   };
 
   render() {
-    const { columns } = this.props;
+    const { cells } = this.props;
 
     return (
       <div
@@ -69,7 +71,9 @@ class ScrollableSection extends PureComponent {
           renderView={this.renderScrollView}
           onScroll={this.handleOnScrollSection}
           ref={this.setScrollableAreaRef}>
-          {columns.map(column => column)}
+          {cells.map((cell, index) => (
+            <Fragment key={`scrollSection-${index}`}>{cell}</Fragment>
+          ))}
         </Scrollbars>
       </div>
     );
@@ -77,7 +81,7 @@ class ScrollableSection extends PureComponent {
 }
 
 ScrollableSection.propTypes = {
-  columns: PropTypes.array.isRequired,
+  cells: PropTypes.array.isRequired,
   onScroll: PropTypes.func,
 };
 
