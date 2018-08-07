@@ -37,7 +37,7 @@ describe('ScrollSyncTable', () => {
     const ScrollSyncTableComponent = shallow(
       <ScrollSyncTable>
         <ScrollSyncColumns>
-          <ScrollSyncColumn name="a">A</ScrollSyncColumn>
+          <ScrollSyncColumn dataKey="a">A</ScrollSyncColumn>
         </ScrollSyncColumns>
         <ScrollSyncRows>
           <ScrollSyncRow>

@@ -10,35 +10,35 @@ import './index.example.css';
 
 const ScrollSyncTableExample = () => (
   <ScrollSyncTable
+    columnClassName="column"
+    headerRowClassName="headerRow"
+    headerColumnClassName="headerColumn"
     tableClassName="table"
     rowClassName="row"
-    columnClassName="column"
-    headerClassName="headerRow"
-    headerColumnClassName="headerColumn"
     stickHeader>
     <ScrollSyncColumns>
-      <ScrollSyncColumn name="a" width="50px" stickyAlign="left">
+      <ScrollSyncColumn dataKey="a" width="50px" stickyAlign="left">
         A
       </ScrollSyncColumn>
-      <ScrollSyncColumn name="b" width="150px">
+      <ScrollSyncColumn dataKey="b" width="150px">
         B
       </ScrollSyncColumn>
-      <ScrollSyncColumn name="c" width="150px">
+      <ScrollSyncColumn dataKey="c" width="150px">
         C
       </ScrollSyncColumn>
-      <ScrollSyncColumn name="d" width="150px">
+      <ScrollSyncColumn dataKey="d" width="150px">
         D
       </ScrollSyncColumn>
-      <ScrollSyncColumn name="e" width="150px">
+      <ScrollSyncColumn dataKey="e" width="150px">
         E
       </ScrollSyncColumn>
-      <ScrollSyncColumn name="f" width="150px">
+      <ScrollSyncColumn dataKey="f" width="150px">
         F
       </ScrollSyncColumn>
-      <ScrollSyncColumn name="g" width="150px">
+      <ScrollSyncColumn dataKey="g" width="150px">
         G
       </ScrollSyncColumn>
-      <ScrollSyncColumn name="h" width="150px" stickyAlign="right">
+      <ScrollSyncColumn dataKey="h" width="150px" stickyAlign="right">
         H
       </ScrollSyncColumn>
     </ScrollSyncColumns>

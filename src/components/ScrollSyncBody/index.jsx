@@ -15,7 +15,7 @@ class ScrollSyncBody extends PureComponent {
     const {
       columns,
       stickHeader,
-      headerClassName,
+      headerRowClassName,
       headerColumnClassName,
     } = this.props;
     const { scrollLeft } = this.state;
@@ -23,7 +23,7 @@ class ScrollSyncBody extends PureComponent {
     return (
       <ScrollSyncRow
         columns={columns}
-        className={headerClassName}
+        className={headerRowClassName}
         columnClassName={headerColumnClassName}
         isSticky={stickHeader}
         isHeader
@@ -54,6 +54,7 @@ class ScrollSyncBody extends PureComponent {
             className: rowClassName,
             columnClassName,
             columns,
+            isHeader: false,
             scrollLeft,
             ...row.props,
           })
@@ -64,39 +65,23 @@ class ScrollSyncBody extends PureComponent {
 }
 
 ScrollSyncBody.propTypes = {
-  /** The rows to be rendered in the table. An array of ScrollSyncRow */
-  rows: PropTypes.array.isRequired,
-
-  /**
-   * The columns to be rendered for each row in the table.
-   * An array of ScrollSyncColumn
-   */
   columns: PropTypes.array.isRequired,
-
-  /** Whether the table will have a sticky header or not */
-  stickHeader: PropTypes.bool,
-
-  /** The class name to be applied to the row */
-  rowClassName: PropTypes.any,
-
-  /** The class name to be applied to the columns */
   columnClassName: PropTypes.any,
-
-  /** The class name to be applied to the header row */
-  headerClassName: PropTypes.any,
-
-  /** The class name to be applied to the header columns */
+  headerRowClassName: PropTypes.any,
   headerColumnClassName: PropTypes.any,
+  rows: PropTypes.array.isRequired,
+  stickHeader: PropTypes.bool,
+  rowClassName: PropTypes.any,
 };
 
 ScrollSyncBody.defaultProps = {
-  rows: [],
   columns: [],
-  stickHeader: false,
-  rowClassName: '',
   columnClassName: '',
-  headerClassName: '',
+  headerRowClassName: '',
   headerColumnClassName: '',
+  rows: [],
+  rowClassName: '',
+  stickHeader: false,
 };
 
 export default ScrollSyncBody;

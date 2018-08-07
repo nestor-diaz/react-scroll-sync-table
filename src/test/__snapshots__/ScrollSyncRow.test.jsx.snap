@@ -12,25 +12,27 @@ exports[`ScrollSyncRow should handle rendering when the given cell does not matc
   }
 >
   <LeftStickySection
-    columns={Array []}
+    cells={Array []}
   />
   <ScrollableSection
-    columns={
+    cells={
       Array [
-        <ScrollSyncColumn
-          className=""
-          name="a"
-          width="150px"
-        >
-          
-        </ScrollSyncColumn>,
+        <div
+          className={undefined}
+          style={
+            Object {
+              "flex": "0 0 150px",
+              "width": "150px",
+            }
+          }
+        />,
       ]
     }
     onScroll={[Function]}
     rowId={1}
   />
   <RightStickySection
-    columns={Array []}
+    cells={Array []}
   />
 </div>
 `;
@@ -47,25 +49,33 @@ exports[`ScrollSyncRow should render a header row when it is specified with the 
   }
 >
   <LeftStickySection
-    columns={Array []}
+    cells={Array []}
   />
   <ScrollableSection
-    columns={
+    cells={
       Array [
-        <ScrollSyncColumn
-          className=""
-          name="a"
-          width="150px"
+        <div
+          className={undefined}
+          style={
+            Object {
+              "flex": "0 0 150px",
+              "width": "150px",
+            }
+          }
         >
-          Column A
-        </ScrollSyncColumn>,
+          <ScrollSyncCell
+            column="a"
+          >
+            Row A / Column A
+          </ScrollSyncCell>
+        </div>,
       ]
     }
     onScroll={[Function]}
     rowId={0}
   />
   <RightStickySection
-    columns={Array []}
+    cells={Array []}
   />
 </div>
 `;
@@ -82,26 +92,33 @@ exports[`ScrollSyncRow should render columns in the left sticky section 1`] = `
   }
 >
   <LeftStickySection
-    columns={
+    cells={
       Array [
-        <ScrollSyncColumn
-          className=""
-          name="a"
-          stickyAlign="left"
-          width="150px"
+        <div
+          className={undefined}
+          style={
+            Object {
+              "flex": "0 0 150px",
+              "width": "150px",
+            }
+          }
         >
-          Row A / Column A
-        </ScrollSyncColumn>,
+          <ScrollSyncCell
+            column="a"
+          >
+            Row A / Column A
+          </ScrollSyncCell>
+        </div>,
       ]
     }
   />
   <ScrollableSection
-    columns={Array []}
+    cells={Array []}
     onScroll={[Function]}
     rowId={1}
   />
   <RightStickySection
-    columns={Array []}
+    cells={Array []}
   />
 </div>
 `;
@@ -118,24 +135,31 @@ exports[`ScrollSyncRow should render columns in the rigth sticky section 1`] = `
   }
 >
   <LeftStickySection
-    columns={Array []}
+    cells={Array []}
   />
   <ScrollableSection
-    columns={Array []}
+    cells={Array []}
     onScroll={[Function]}
     rowId={1}
   />
   <RightStickySection
-    columns={
+    cells={
       Array [
-        <ScrollSyncColumn
-          className=""
-          name="a"
-          stickyAlign="right"
-          width="150px"
+        <div
+          className={undefined}
+          style={
+            Object {
+              "flex": "0 0 150px",
+              "width": "150px",
+            }
+          }
         >
-          Row A / Column A
-        </ScrollSyncColumn>,
+          <ScrollSyncCell
+            column="a"
+          >
+            Row A / Column A
+          </ScrollSyncCell>
+        </div>,
       ]
     }
   />
@@ -154,25 +178,33 @@ exports[`ScrollSyncRow should render columns in the scrollable section if no sti
   }
 >
   <LeftStickySection
-    columns={Array []}
+    cells={Array []}
   />
   <ScrollableSection
-    columns={
+    cells={
       Array [
-        <ScrollSyncColumn
-          className=""
-          name="a"
-          width="150px"
+        <div
+          className={undefined}
+          style={
+            Object {
+              "flex": "0 0 150px",
+              "width": "150px",
+            }
+          }
         >
-          Row A / Column A
-        </ScrollSyncColumn>,
+          <ScrollSyncCell
+            column="a"
+          >
+            Row A / Column A
+          </ScrollSyncCell>
+        </div>,
       ]
     }
     onScroll={[Function]}
     rowId={1}
   />
   <RightStickySection
-    columns={Array []}
+    cells={Array []}
   />
 </div>
 `;
@@ -189,15 +221,15 @@ exports[`ScrollSyncRow should render its default content 1`] = `
   }
 >
   <LeftStickySection
-    columns={Array []}
+    cells={Array []}
   />
   <ScrollableSection
-    columns={Array []}
+    cells={Array []}
     onScroll={[Function]}
     rowId={1}
   />
   <RightStickySection
-    columns={Array []}
+    cells={Array []}
   />
 </div>
 `;

@@ -61,22 +61,30 @@ exports[`ScrollableSection should render the given columns 1`] = `
     thumbMinSize={30}
     universal={false}
   >
-    <ScrollSyncColumn
-      className=""
-      key="a"
-      name="a"
-      width="150px"
+    <React.Fragment
+      key="scrollSection-0"
     >
-      Column A
-    </ScrollSyncColumn>
-    <ScrollSyncColumn
-      className=""
-      key="b"
-      name="b"
-      width="150px"
+      <ScrollSyncColumn
+        className=""
+        dataKey="a"
+        key="a"
+        width="150px"
+      >
+        Column A
+      </ScrollSyncColumn>
+    </React.Fragment>
+    <React.Fragment
+      key="scrollSection-1"
     >
-      Column B
-    </ScrollSyncColumn>
+      <ScrollSyncColumn
+        className=""
+        dataKey="b"
+        key="b"
+        width="150px"
+      >
+        Column B
+      </ScrollSyncColumn>
+    </React.Fragment>
   </Scrollbars>
 </div>
 `;

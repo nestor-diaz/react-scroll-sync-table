@@ -6,8 +6,8 @@ import ScrollSyncRow from '../components/ScrollSyncRows/ScrollSyncRow';
 
 describe('ScrollSyncBody', () => {
   const columns = [
-    <ScrollSyncColumn key="a" name="a" />,
-    <ScrollSyncColumn key="b" name="b" />,
+    <ScrollSyncColumn key="a" dataKey="a" />,
+    <ScrollSyncColumn key="b" dataKey="b" />,
   ];
   const rows = [
     <ScrollSyncRow key="a" column="a" />,

@@ -1,9 +1,6 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
-const ScrollSyncCell = ({ column }) => (
-  <div>Cell rendering content for {column}</div>
-);
+const ScrollSyncCell = ({ children }) => children;
 
 ScrollSyncCell.propTypes = {
   /** The column name where the cell should be rendered */
