@@ -1,5 +1,5 @@
-import LeftSection from './LeftSection';
-import RightSection from './RightSection';
+import LeftStickySection from './LeftStickySection';
+import RightStickySection from './RightStickySection';
 import ScrollableSection from './ScrollableSection';
 
-export { LeftSection, RightSection, ScrollableSection };
+export { LeftStickySection, RightStickySection, ScrollableSection };
