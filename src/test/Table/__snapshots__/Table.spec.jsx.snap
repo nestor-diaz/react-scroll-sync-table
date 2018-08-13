@@ -9,7 +9,7 @@ exports[`Table should render its default content with one single child 1`] = `
     }
   }
 >
-  <[object Object]
+  <ContextProvider
     value={
       Object {
         "handleOnScroll": [Function],
@@ -23,7 +23,7 @@ exports[`Table should render its default content with one single child 1`] = `
       columns={Array []}
       rowData={Object {}}
     />
-  </[object Object]>
+  </ContextProvider>
 </div>
 `;
 
@@ -36,7 +36,7 @@ exports[`Table should render the given children 1`] = `
     }
   }
 >
-  <[object Object]
+  <ContextProvider
     value={
       Object {
         "handleOnScroll": [Function],
@@ -62,6 +62,6 @@ exports[`Table should render the given children 1`] = `
       columns={Array []}
       rowData={Object {}}
     />
-  </[object Object]>
+  </ContextProvider>
 </div>
 `;
