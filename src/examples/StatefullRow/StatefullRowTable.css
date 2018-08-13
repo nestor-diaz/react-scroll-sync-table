@@ -1,0 +1,24 @@
+.table {
+  border: 1px solid gray;
+  margin: 20px;
+}
+
+.headerRow {
+  border-bottom: 1px solid gray;
+}
+
+.row {
+  border-bottom: 1px solid gray;
+}
+
+.headerCell {
+  border-right: 1px solid gray;
+  text-align: center;
+  line-height: 50px;
+}
+
+.cell {
+  border-right: 1px solid gray;
+  text-align: center;
+  line-height: 50px;
+}
