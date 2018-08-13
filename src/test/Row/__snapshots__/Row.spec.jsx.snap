@@ -18,11 +18,11 @@ exports[`Row should render a cell per column 1`] = `
           style={
             Object {
               "flex": "0 0 50",
-              "width": "50",
+              "width": 50,
             }
           }
         >
-          Row A / Column C
+          Row A / Column A
         </div>,
       ]
     }
@@ -36,11 +36,11 @@ exports[`Row should render a cell per column 1`] = `
           style={
             Object {
               "flex": "0 0 50",
-              "width": 50,
+              "width": "50",
             }
           }
         >
-          Row A / Column A
+          Row A / Column C
         </div>,
       ]
     }

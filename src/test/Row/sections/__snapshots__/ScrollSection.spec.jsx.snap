@@ -64,21 +64,27 @@ exports[`ScrollSection should render the given cells 1`] = `
     <Cell
       key="scroll-0"
     >
-      <div>
+      <div
+        key="0"
+      >
         Cell A
       </div>
     </Cell>
     <Cell
       key="scroll-1"
     >
-      <div>
+      <div
+        key="1"
+      >
         Cell B
       </div>
     </Cell>
     <Cell
       key="scroll-2"
     >
-      <div>
+      <div
+        key="2"
+      >
         Cell C
       </div>
     </Cell>
