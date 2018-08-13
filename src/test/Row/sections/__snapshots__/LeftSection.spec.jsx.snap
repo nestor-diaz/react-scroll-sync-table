@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LeftSection should render its default content 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flex": "0 0 auto",
+      "left": "0",
+      "position": "sticky",
+    }
+  }
+/>
+`;
+
+exports[`LeftSection should render the given cells 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flex": "0 0 auto",
+      "left": "0",
+      "position": "sticky",
+    }
+  }
+>
+  <div
+    key="0"
+  >
+    Cell A
+  </div>
+  <div
+    key="1"
+  >
+    Cell B
+  </div>
+  <div
+    key="2"
+  >
+    Cell C
+  </div>
+</div>
+`;

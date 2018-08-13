@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table should render its default content with one single child 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+>
+  <ContextProvider
+    value={
+      Object {
+        "handleOnScroll": [Function],
+        "registerScrollSection": [Function],
+      }
+    }
+  >
+    <Row
+      cellClassName=""
+      className=""
+      columns={Array []}
+      rowData={Object {}}
+    />
+  </ContextProvider>
+</div>
+`;
+
+exports[`Table should render the given children 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
+    }
+  }
+>
+  <ContextProvider
+    value={
+      Object {
+        "handleOnScroll": [Function],
+        "registerScrollSection": [Function],
+      }
+    }
+  >
+    <Row
+      cellClassName=""
+      className=""
+      columns={Array []}
+      rowData={Object {}}
+    />
+    <Row
+      cellClassName=""
+      className=""
+      columns={Array []}
+      rowData={Object {}}
+    />
+    <Row
+      cellClassName=""
+      className=""
+      columns={Array []}
+      rowData={Object {}}
+    />
+  </ContextProvider>
+</div>
+`;

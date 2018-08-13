@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row should render a cell per column 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "display": "flex",
+      "minHeight": "50px",
+    }
+  }
+>
+  <LeftStickySection
+    cells={
+      Array [
+        <div
+          className=""
+          style={
+            Object {
+              "flex": "0 0 50",
+              "width": 50,
+            }
+          }
+        >
+          Row A / Column A
+        </div>,
+      ]
+    }
+  />
+  <ContextConsumer>
+    <Component />
+  </ContextConsumer>
+  <RightStickySection
+    cells={
+      Array [
+        <div
+          className=""
+          style={
+            Object {
+              "flex": "0 0 50",
+              "width": "50",
+            }
+          }
+        >
+          Row A / Column C
+        </div>,
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`Row should render an empty cell if no data key is provided 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "display": "flex",
+      "minHeight": "50px",
+    }
+  }
+>
+  <LeftStickySection
+    cells={Array []}
+  />
+  <ContextConsumer>
+    <Component />
+  </ContextConsumer>
+  <RightStickySection
+    cells={Array []}
+  />
+</div>
+`;
+
+exports[`Row should render its default content 1`] = `
+<div
+  className=""
+  style={
+    Object {
+      "display": "flex",
+      "minHeight": "50px",
+    }
+  }
+>
+  <LeftStickySection
+    cells={Array []}
+  />
+  <ContextConsumer>
+    <Component />
+  </ContextConsumer>
+  <RightStickySection
+    cells={Array []}
+  />
+</div>
+`;
