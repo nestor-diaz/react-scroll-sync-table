@@ -27,7 +27,7 @@ exports[`Row should render a cell per column 1`] = `
       ]
     }
   />
-  <[object Object] />
+  <ScrollContext />
   <RightStickySection
     cells={
       Array [
@@ -61,7 +61,7 @@ exports[`Row should render an empty cell if no data key is provided 1`] = `
   <LeftStickySection
     cells={Array []}
   />
-  <[object Object] />
+  <ScrollContext />
   <RightStickySection
     cells={Array []}
   />
@@ -81,7 +81,7 @@ exports[`Row should render its default content 1`] = `
   <LeftStickySection
     cells={Array []}
   />
-  <[object Object] />
+  <ScrollContext />
   <RightStickySection
     cells={Array []}
   />

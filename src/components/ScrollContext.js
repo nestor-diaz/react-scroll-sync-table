@@ -1,3 +1,7 @@
 import React from 'react';
 
-export default React.createContext();
+const scrollContext = React.createContext();
+
+scrollContext.toString = () => 'ScrollContext';
+
+export default scrollContext;
