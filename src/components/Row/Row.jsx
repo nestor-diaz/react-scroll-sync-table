@@ -5,8 +5,7 @@ import { ScrollSection, RightSection, LeftSection } from './sections';
 import ScrollContext from '../ScrollContext';
 
 const defaultRowStyle = {
-  display: 'flex',
-  minHeight: '50px',
+  display: 'flex'
 };
 const defaultCellStyle = width => ({
   width,

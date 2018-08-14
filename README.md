@@ -1,33 +1,5 @@
 ## ScrollSyncTable
 [![Build Status](https://travis-ci.org/ndiaz-candido/react-scroll-sync-table.svg?branch=master)](https://travis-ci.org/ndiaz-candido/react-scroll-sync-table)
-### A table to show components in a declarative way with horizontal synced scroll.
+### A React table with horizontal synced scrolls
 
-
-The table is a composition of React components where you explicitly set the Columns and the Rows.
-
-```js
-<ScrollSyncTable stickHeader>
-  <ScrollSyncColumns>
-    <ScrollSyncColumn name="a" width="30px">Column A</ScrollSyncColumn>
-    <ScrollSyncColumn name="b" width="100px">Column B</ScrollSyncColumn>
-  </ScrollSyncColumns>
-  <ScrollSyncRows>
-    <ScrollSyncRow>
-      <ScrollSyncCell column="a">Row A / Column A</ScrollSyncCell>
-      <ScrollSyncCell column="b">Row A / Column B</ScrollSyncCell>
-    </ScrollSyncRow>
-    <ScrollSyncRow>
-      <ScrollSyncCell column="a">Row B / Column A</ScrollSyncCell>
-      <ScrollSyncCell column="b">Row B / Column B</ScrollSyncCell>
-    </ScrollSyncRow>
-    <ScrollSyncRow>
-      <ScrollSyncCell column="a">Row C / Column A</ScrollSyncCell>
-      <ScrollSyncCell column="b">Row C / Column B</ScrollSyncCell>
-    </ScrollSyncRow>
-    <ScrollSyncRow>
-      <ScrollSyncCell column="a">Row D / Column A</ScrollSyncCell>
-      <ScrollSyncCell column="b">Row D / Column B</ScrollSyncCell>
-    </ScrollSyncRow>
-  </ScrollSyncRows>
-</ScrollSyncTable>
-```
+This is a working in progress project
