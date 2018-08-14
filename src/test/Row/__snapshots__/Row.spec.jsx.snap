@@ -6,7 +6,6 @@ exports[`Row should render a cell per column 1`] = `
   style={
     Object {
       "display": "flex",
-      "minHeight": "50px",
     }
   }
 >
@@ -56,7 +55,6 @@ exports[`Row should render an empty cell if no data key is provided 1`] = `
   style={
     Object {
       "display": "flex",
-      "minHeight": "50px",
     }
   }
 >
@@ -78,7 +76,6 @@ exports[`Row should render its default content 1`] = `
   style={
     Object {
       "display": "flex",
-      "minHeight": "50px",
     }
   }
 >

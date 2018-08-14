@@ -6,7 +6,6 @@ import ScrollContext from '../ScrollContext';
 
 const defaultRowStyle = {
   display: 'flex',
-  minHeight: '50px',
 };
 const defaultCellStyle = width => ({
   width,
