@@ -1,6 +1,7 @@
-import React, { Component, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
+import idGenerator from 'react-id-generator';
 
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-multi-comp */
@@ -22,7 +23,7 @@ class Cell extends PureComponent {
   }
 }
 
-class ScrollSection extends Component {
+class ScrollSection extends PureComponent {
   state = {
     showScrollTrack: false,
   };
@@ -42,6 +43,7 @@ class ScrollSection extends Component {
 
     return (
       <div
+        key={idGenerator()}
         style={{
           ...style,
           ...defaultSectionStyle,

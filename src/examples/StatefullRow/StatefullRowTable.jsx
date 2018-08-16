@@ -7,7 +7,7 @@ import './StatefullRowTable.css';
 const columns = [
   {
     dataKey: 'columnA',
-    stickAlign: 'right',
+    stickAlign: 'left',
     width: '100px',
   },
   {
@@ -40,7 +40,7 @@ const columns = [
   },
   {
     dataKey: 'columnJ',
-    stickAlign: 'left',
+    stickAlign: 'right',
     width: '100px',
   },
 ];
