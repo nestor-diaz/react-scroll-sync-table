@@ -61,33 +61,21 @@ exports[`ScrollSection should render the given cells 1`] = `
     thumbMinSize={30}
     universal={false}
   >
-    <Cell
-      key="scroll-0"
+    <div
+      key="0"
     >
-      <div
-        key="0"
-      >
-        Cell A
-      </div>
-    </Cell>
-    <Cell
-      key="scroll-1"
+      Cell A
+    </div>
+    <div
+      key="1"
     >
-      <div
-        key="1"
-      >
-        Cell B
-      </div>
-    </Cell>
-    <Cell
-      key="scroll-2"
+      Cell B
+    </div>
+    <div
+      key="2"
     >
-      <div
-        key="2"
-      >
-        Cell C
-      </div>
-    </Cell>
+      Cell C
+    </div>
   </Scrollbars>
 </div>
 `;

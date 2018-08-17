@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Scrollbars } from 'react-custom-scrollbars';
 
@@ -12,17 +12,7 @@ const defaultSectionStyle = {
   display: 'flex',
 };
 
-/**
- * This PureComponent avoids updating the cells when the user
- * is scrolling improving the performance.
- */
-class Cell extends PureComponent {
-  render() {
-    return this.props.children;
-  }
-}
-
-class ScrollSection extends Component {
+class ScrollSection extends PureComponent {
   state = {
     showScrollTrack: false,
   };
@@ -74,7 +64,7 @@ class ScrollSection extends Component {
           renderView={this.renderScrollView}
           onScroll={this.handleOnScroll}>
           {cells.map((cell, index) => (
-            <Cell key={`scroll-${index}`}>{cell}</Cell>
+            <Fragment key={`scrollCell-${index}`}>{cell}</Fragment>
           ))}
         </Scrollbars>
       </div>
