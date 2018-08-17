@@ -72,6 +72,7 @@ class Row extends Component {
         <ScrollContext.Consumer>
           {({ handleOnScroll, registerScrollSection }) => (
             <ScrollSection
+              key={`scrollSection-${this.rowId}`}
               cells={scrollSection}
               onScroll={handleOnScroll}
               registerScrollSection={registerScrollSection}
