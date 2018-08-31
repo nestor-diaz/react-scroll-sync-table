@@ -24,32 +24,20 @@ exports[`LeftSection should render the given cells 1`] = `
     }
   }
 >
-  <React.Fragment
-    key="leftSection-0"
+  <div
+    key="0"
   >
-    <div
-      key="0"
-    >
-      Cell A
-    </div>
-  </React.Fragment>
-  <React.Fragment
-    key="leftSection-1"
+    Cell A
+  </div>
+  <div
+    key="1"
   >
-    <div
-      key="1"
-    >
-      Cell B
-    </div>
-  </React.Fragment>
-  <React.Fragment
-    key="leftSection-2"
+    Cell B
+  </div>
+  <div
+    key="2"
   >
-    <div
-      key="2"
-    >
-      Cell C
-    </div>
-  </React.Fragment>
+    Cell C
+  </div>
 </div>
 `;
