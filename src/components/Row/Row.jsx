@@ -64,19 +64,20 @@ class Row extends Component {
 
   render() {
     const { stickLeftSection, stickRightSection, scrollSection } = this.state;
-    const { className } = this.props;
+    const { className, showScrollIndicators } = this.props;
 
     return (
       <div className={className} style={defaultRowStyle}>
         <LeftSection cells={stickLeftSection} />
         <ScrollContext.Consumer>
-          {({ handleOnScroll, registerScrollSection }) => (
+          {({ handleOnScroll, registerScrollSectionElements }) => (
             <ScrollSection
               key={`scrollSection-${this.rowId}`}
               cells={scrollSection}
               onScroll={handleOnScroll}
-              registerScrollSection={registerScrollSection}
+              registerScrollSectionElements={registerScrollSectionElements}
               rowId={this.rowId}
+              showScrollIndicators={showScrollIndicators}
             />
           )}
         </ScrollContext.Consumer>
@@ -96,6 +97,7 @@ Row.propTypes = {
       width: PropTypes.string,
     })
   ),
+  showScrollIndicators: PropTypes.bool,
   rowData: PropTypes.object,
 };
 
@@ -103,6 +105,7 @@ Row.defaultProps = {
   className: '',
   cellClassName: '',
   columns: [],
+  showScrollIndicators: true,
   rowData: {},
 };
 

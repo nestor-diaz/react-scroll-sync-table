@@ -8,21 +8,49 @@ const defaultStyle = {
 };
 
 class Table extends Component {
-  state = {
-    scrollSections: new Map(),
+  scrollSectionElements = new Map();
+
+  handleOnScroll = scrollValues => {
+    const { scrollLeft } = scrollValues;
+
+    this.scrollSectionElements.forEach(scrollSectionElement => {
+      const { scrollableArea } = scrollSectionElement;
+
+      scrollableArea.scrollLeft(scrollLeft);
+    });
+
+    this.shouldShowScrollIndicators(scrollValues);
   };
 
-  handleOnScroll = scroll => {
-    const { scrollSections } = this.state;
+  shouldShowScrollIndicators = scrollValues => {
+    const { clientWidth, scrollWidth, left } = scrollValues;
 
-    scrollSections.forEach(section => section.scrollLeft(scroll.left));
+    this.scrollSectionElements.forEach(scrollSectionElement => {
+      const {
+        scrollRightIndicator,
+        scrollLeftIndicator,
+      } = scrollSectionElement;
+      const shouldShowIndicators = scrollWidth > clientWidth;
+      const shouldShowRightIndicator = left < 1;
+      const shouldShowLeftIndicator = left > 0;
+
+      if (shouldShowIndicators && shouldShowRightIndicator) {
+        scrollRightIndicator.style.display = 'block';
+      } else {
+        scrollRightIndicator.style.display = 'none';
+      }
+
+      if (shouldShowIndicators && shouldShowLeftIndicator) {
+        scrollLeftIndicator.style.display = 'block';
+      } else {
+        scrollLeftIndicator.style.display = 'none';
+      }
+    });
   };
 
-  registerScrollSection = (rowId, elementRef) => {
-    const { scrollSections } = this.state;
-
-    if (!scrollSections.has(rowId)) {
-      this.setState({ scrollSections: scrollSections.set(rowId, elementRef) });
+  registerScrollSectionElements = (rowId, elements) => {
+    if (!this.scrollSectionElements.has(rowId)) {
+      this.scrollSectionElements.set(rowId, elements);
     }
   };
 
@@ -34,7 +62,7 @@ class Table extends Component {
         <ScrollContext.Provider
           value={{
             handleOnScroll: this.handleOnScroll,
-            registerScrollSection: this.registerScrollSection,
+            registerScrollSectionElements: this.registerScrollSectionElements,
           }}>
           {children}
         </ScrollContext.Provider>
