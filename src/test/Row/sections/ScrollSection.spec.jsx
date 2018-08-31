@@ -60,12 +60,15 @@ describe('ScrollSection', () => {
   });
 
   test('should register the scroll section when it renders', () => {
-    const registerScrollSection = jest.fn();
+    const registerScrollSectionElements = jest.fn();
 
     mount(
-      <ScrollSection cells={[]} registerScrollSection={registerScrollSection} />
+      <ScrollSection
+        cells={[]}
+        registerScrollSectionElements={registerScrollSectionElements}
+      />
     );
 
-    expect(registerScrollSection).toHaveBeenCalled();
+    expect(registerScrollSectionElements).toHaveBeenCalled();
   });
 });

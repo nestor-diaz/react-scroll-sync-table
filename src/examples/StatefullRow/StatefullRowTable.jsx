@@ -50,6 +50,7 @@ const StatefullTable = () => (
       className="headerRow"
       cellClassName="headerCell"
       columns={columns}
+      showScrollIndicators={false}
       rowData={{
         columnA: <div>Column A</div>,
         columnB: <div>Column B</div>,

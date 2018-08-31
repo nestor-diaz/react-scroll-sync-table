@@ -13,7 +13,7 @@ exports[`Table should render its default content with one single child 1`] = `
     value={
       Object {
         "handleOnScroll": [Function],
-        "registerScrollSection": [Function],
+        "registerScrollSectionElements": [Function],
       }
     }
   >
@@ -22,6 +22,7 @@ exports[`Table should render its default content with one single child 1`] = `
       className=""
       columns={Array []}
       rowData={Object {}}
+      showScrollIndicators={true}
     />
   </ContextProvider>
 </div>
@@ -40,7 +41,7 @@ exports[`Table should render the given children 1`] = `
     value={
       Object {
         "handleOnScroll": [Function],
-        "registerScrollSection": [Function],
+        "registerScrollSectionElements": [Function],
       }
     }
   >
@@ -49,18 +50,21 @@ exports[`Table should render the given children 1`] = `
       className=""
       columns={Array []}
       rowData={Object {}}
+      showScrollIndicators={true}
     />
     <Row
       cellClassName=""
       className=""
       columns={Array []}
       rowData={Object {}}
+      showScrollIndicators={true}
     />
     <Row
       cellClassName=""
       className=""
       columns={Array []}
       rowData={Object {}}
+      showScrollIndicators={true}
     />
   </ContextProvider>
 </div>

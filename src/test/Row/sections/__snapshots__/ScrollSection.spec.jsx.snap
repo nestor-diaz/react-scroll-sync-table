@@ -8,9 +8,32 @@ exports[`ScrollSection should render its default content 1`] = `
   style={
     Object {
       "flex": "1 1 auto",
+      "position": "relative",
     }
   }
 >
+  <div
+    style={
+      Object {
+        "backgroundImage": "linear-gradient(to right, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))",
+        "height": "100%",
+        "position": "absolute",
+        "right": 0,
+        "width": "20px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundImage": "linear-gradient(to left, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))",
+        "height": "100%",
+        "left": 0,
+        "position": "absolute",
+        "width": "20px",
+      }
+    }
+  />
   <Scrollbars
     autoHeight={false}
     autoHeightMax={200}
@@ -40,9 +63,32 @@ exports[`ScrollSection should render the given cells 1`] = `
   style={
     Object {
       "flex": "1 1 auto",
+      "position": "relative",
     }
   }
 >
+  <div
+    style={
+      Object {
+        "backgroundImage": "linear-gradient(to right, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))",
+        "height": "100%",
+        "position": "absolute",
+        "right": 0,
+        "width": "20px",
+      }
+    }
+  />
+  <div
+    style={
+      Object {
+        "backgroundImage": "linear-gradient(to left, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))",
+        "height": "100%",
+        "left": 0,
+        "position": "absolute",
+        "width": "20px",
+      }
+    }
+  />
   <Scrollbars
     autoHeight={false}
     autoHeightMax={200}
