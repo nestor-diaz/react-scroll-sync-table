@@ -63,7 +63,10 @@ describe('ScrollSection', () => {
     const registerScrollSectionElements = jest.fn();
 
     mount(
-      <ScrollSection cells={[]} registerScrollSectionElements={registerScrollSectionElements} />
+      <ScrollSection
+        cells={[]}
+        registerScrollSectionElements={registerScrollSectionElements}
+      />
     );
 
     expect(registerScrollSectionElements).toHaveBeenCalled();
