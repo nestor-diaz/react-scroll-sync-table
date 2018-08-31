@@ -26,9 +26,7 @@ exports[`Row should render a cell per column 1`] = `
       ]
     }
   />
-  <ContextConsumer>
-    <Component />
-  </ContextConsumer>
+  <[object Object] />
   <RightStickySection
     cells={
       Array [
@@ -61,9 +59,7 @@ exports[`Row should render an empty cell if no data key is provided 1`] = `
   <LeftStickySection
     cells={Array []}
   />
-  <ContextConsumer>
-    <Component />
-  </ContextConsumer>
+  <[object Object] />
   <RightStickySection
     cells={Array []}
   />
@@ -82,9 +78,7 @@ exports[`Row should render its default content 1`] = `
   <LeftStickySection
     cells={Array []}
   />
-  <ContextConsumer>
-    <Component />
-  </ContextConsumer>
+  <[object Object] />
   <RightStickySection
     cells={Array []}
   />
