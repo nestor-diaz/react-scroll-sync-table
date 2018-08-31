@@ -13,6 +13,7 @@ const defaultSectionStyle = {
   display: 'flex',
 };
 const defaultScrollRightIndicatorStyle = {
+  display: 'none',
   height: '100%',
   position: 'absolute',
   right: 0,
