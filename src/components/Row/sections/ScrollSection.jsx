@@ -22,6 +22,7 @@ const defaultScrollRightIndicatorStyle = {
     'linear-gradient(to right, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))',
 };
 const defaultScrollLeftIndicatorStyle = {
+  display: 'none',
   height: '100%',
   position: 'absolute',
   left: 0,
