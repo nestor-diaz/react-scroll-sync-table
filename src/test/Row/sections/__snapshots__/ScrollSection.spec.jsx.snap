@@ -28,6 +28,7 @@ exports[`ScrollSection should render its default content 1`] = `
     style={
       Object {
         "backgroundImage": "linear-gradient(to left, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))",
+        "display": "none",
         "height": "100%",
         "left": 0,
         "position": "absolute",
@@ -84,6 +85,7 @@ exports[`ScrollSection should render the given cells 1`] = `
     style={
       Object {
         "backgroundImage": "linear-gradient(to left, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))",
+        "display": "none",
         "height": "100%",
         "left": 0,
         "position": "absolute",
