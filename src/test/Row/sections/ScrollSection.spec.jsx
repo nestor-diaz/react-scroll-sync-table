@@ -21,42 +21,38 @@ describe('ScrollSection', () => {
     expect(ScrollSectionComponent).toMatchSnapshot();
   });
 
-  test('should call the callback when the section is scrolled', () => {
+  test('should render the scroll arrows when the section is scrollable', () => {
+    const ScrollSectionComponent = shallow(<ScrollSection cells={cells} />);
+
+    ScrollSectionComponent.setState({ shouldShowScrollArrows: true });
+
+    expect(ScrollSectionComponent).toMatchSnapshot();
+  });
+
+  test('should call the callback when the section is scrolled to the left', () => {
     const onScroll = jest.fn();
     const ScrollSectionComponent = mount(
       <ScrollSection cells={cells} onScroll={onScroll} />
     );
-    const ScrollBars = ScrollSectionComponent.find('Scrollbars');
+    ScrollSectionComponent.setState({ shouldShowScrollArrows: true });
 
-    ScrollBars.prop('onScroll')();
+    const ScrollBars = ScrollSectionComponent.find('#scrollLeft');
+    ScrollBars.prop('onClick')();
 
-    expect(onScroll).toHaveBeenCalled();
+    expect(onScroll).toHaveBeenCalledWith(expect.objectContaining({ direction: 'left' }));
   });
 
-  test('should show the scroll tracks when the mouse enters to the section', () => {
-    const ScrollSectionComponent = mount(<ScrollSection cells={[]} />);
-    const ScrollableWrapper = ScrollSectionComponent.find(
-      '#scrollable-wrapper'
+  test('should call the callback when the section is scrolled to the right', () => {
+    const onScroll = jest.fn();
+    const ScrollSectionComponent = mount(
+      <ScrollSection cells={cells} onScroll={onScroll} />
     );
+    ScrollSectionComponent.setState({ shouldShowScrollArrows: true });
 
-    ScrollableWrapper.prop('onMouseEnter')();
+    const ScrollBars = ScrollSectionComponent.find('#scrollRight');
+    ScrollBars.prop('onClick')();
 
-    expect(ScrollSectionComponent.state()).toEqual({
-      showScrollTrack: true,
-    });
-  });
-
-  test('should hide the scroll tracks when the mouse leaves the section', () => {
-    const ScrollSectionComponent = mount(<ScrollSection cells={[]} />);
-    const ScrollableWrapper = ScrollSectionComponent.find(
-      '#scrollable-wrapper'
-    );
-
-    ScrollableWrapper.prop('onMouseLeave')();
-
-    expect(ScrollSectionComponent.state()).toEqual({
-      showScrollTrack: false,
-    });
+    expect(onScroll).toHaveBeenCalledWith(expect.objectContaining({ direction: 'right' }));
   });
 
   test('should register the scroll section when it renders', () => {

@@ -5,112 +5,126 @@ import { Scrollbars } from 'react-custom-scrollbars';
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/no-multi-comp */
 
-const defaultWrapperStyle = {
+const defaultScrollWrapperStyle = {
   flex: '1 1 auto',
   position: 'relative',
 };
-const defaultSectionStyle = {
+const defaultScrollSectionStyle = {
   display: 'flex',
+  overflowX: 'hidden',
+  overflowY: 'hidden',
 };
-const defaultScrollRightIndicatorStyle = {
-  display: 'none',
-  height: '100%',
-  position: 'absolute',
-  right: 0,
-  width: '20px',
-  backgroundImage:
-    'linear-gradient(to right, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))',
-};
-const defaultScrollLeftIndicatorStyle = {
-  display: 'none',
-  height: '100%',
+const defaultLeftScrollArrowWrapperStyle = {
   position: 'absolute',
   left: 0,
-  width: '20px',
-  backgroundImage:
-    'linear-gradient(to left, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))',
+  height: '100%',
+};
+const defaultRightScrollArrowWrapperStyle = {
+  position: 'absolute',
+  right: 0,
+  height: '100%',
 };
 
 class ScrollSection extends PureComponent {
   state = {
-    showScrollTrack: false,
+    shouldShowScrollArrows: false,
+    enableLeftScrollArrow: false,
+    enableRightScrollArrow: false,
   };
 
   componentDidMount() {
-    const { rowId, registerScrollSectionElements, onScroll } = this.props;
+    const { rowId, registerScrollSectionElements } = this.props;
 
     registerScrollSectionElements(rowId, {
       scrollableArea: this.scrollableAreaRef,
-      scrollRightIndicator: this.scrollRightIndicatorRef,
-      scrollLeftIndicator: this.scrollLeftIndicatorRef,
+      updateScrollArrows: this.shouldEnableScrollArrows.bind(this),
     });
 
-    // Call this once on mount to initialize the Table state.
     if (this.scrollableAreaRef) {
-      onScroll(this.scrollableAreaRef.getValues());
+      this.shouldEnableScrollArrows();
     }
   }
 
-  handleOnMouseEnter = () => this.setState({ showScrollTrack: true });
-
-  handleOnMouseLeave = () => this.setState({ showScrollTrack: false });
-
-  handleOnScroll = () =>
-    this.props.onScroll(this.scrollableAreaRef.getValues());
-
-  renderScrollView = ({ style, ...props }) => {
-    const { showScrollTrack } = this.state;
-    const showXScrollTrack = { overflowX: 'scroll' };
-    const hideXScrollTrack = { overflowX: 'hidden' };
-    const customStyles = showScrollTrack ? showXScrollTrack : hideXScrollTrack;
-
-    return (
-      <div
-        style={{
-          ...style,
-          ...defaultSectionStyle,
-          ...customStyles,
-        }}
-        {...props}
-      />
-    );
-  };
+  renderScrollView = ({ style, ...props }) => (
+    <div
+      style={{
+        ...style,
+        ...defaultScrollSectionStyle,
+      }}
+      {...props}
+    />
+  );
 
   setScrollableAreaRef = element => (this.scrollableAreaRef = element);
 
-  setScrollRightIndicatorRef = element =>
-    (this.scrollRightIndicatorRef = element);
+  handleOnScroll = direction => {
+    this.props.onScroll({
+      columnWidths: this.props.columnWidths,
+      scrollValues: this.scrollableAreaRef.getValues(),
+      direction,
+    });
 
-  setScrollLeftIndicatorRef = element =>
-    (this.scrollLeftIndicatorRef = element);
+    this.shouldEnableScrollArrows();
+  };
 
-  render() {
-    const { cells, showScrollIndicators } = this.props;
-    const scrollRightIndicatorStyle = showScrollIndicators
-      ? defaultScrollRightIndicatorStyle
-      : {};
-    const scrollLeftIndicatorStyle = showScrollIndicators
-      ? defaultScrollLeftIndicatorStyle
-      : {};
+  renderScrollArrows = () => {
+    const { enableLeftScrollArrow, enableRightScrollArrow } = this.state;
+    const {
+      leftArrowWrapperClassName,
+      rightArrowWrapperClassName,
+      leftArrowRenderer,
+      rightArrowRenderer,
+    } = this.props;
 
     return (
-      <div
-        id="scrollable-wrapper"
-        style={defaultWrapperStyle}
-        onMouseEnter={this.handleOnMouseEnter}
-        onMouseLeave={this.handleOnMouseLeave}>
+      <Fragment>
         <div
-          ref={this.setScrollRightIndicatorRef}
-          style={scrollRightIndicatorStyle}
-        />
+          className={leftArrowWrapperClassName}
+          style={defaultLeftScrollArrowWrapperStyle}>
+          <div id="scrollLeft" onClick={() => this.handleOnScroll('left')}>
+            {leftArrowRenderer({ isEnabled: enableLeftScrollArrow })}
+          </div>
+        </div>
         <div
-          ref={this.setScrollLeftIndicatorRef}
-          style={scrollLeftIndicatorStyle}
-        />
+          className={rightArrowWrapperClassName}
+          style={defaultRightScrollArrowWrapperStyle}>
+          <div id="scrollRight" onClick={() => this.handleOnScroll('right')}>
+            {rightArrowRenderer({ isEnabled: enableRightScrollArrow })}
+          </div>
+        </div>
+      </Fragment>
+    );
+  };
+
+  shouldEnableScrollArrows = () => {
+    const {
+      clientWidth,
+      scrollWidth,
+      left,
+    } = this.scrollableAreaRef.getValues();
+    const shouldShowScrollArrows = scrollWidth > clientWidth;
+    const enableLeftScrollArrow = left > 0;
+    const enableRightScrollArrow = left < 1;
+
+    this.setState({
+      shouldShowScrollArrows,
+      enableLeftScrollArrow,
+      enableRightScrollArrow,
+    });
+  };
+
+  render() {
+    const { shouldShowScrollArrows } = this.state;
+    const { cells, showScrollArrows } = this.props;
+
+    return (
+      <div style={defaultScrollWrapperStyle}>
+        {showScrollArrows &&
+          shouldShowScrollArrows &&
+          this.renderScrollArrows()}
         <Scrollbars
           ref={this.setScrollableAreaRef}
-          renderView={this.renderScrollView}
-          onScroll={this.handleOnScroll}>
+          renderView={this.renderScrollView}>
           {cells.map((cell, index) => (
             <Fragment key={`scrollCell-${index}`}>{cell}</Fragment>
           ))}
@@ -122,16 +136,26 @@ class ScrollSection extends PureComponent {
 
 ScrollSection.propTypes = {
   cells: PropTypes.array,
+  columnWidths: PropTypes.array,
   onScroll: PropTypes.func,
   registerScrollSectionElements: PropTypes.func,
-  showScrollIndicators: PropTypes.bool,
+  showScrollArrows: PropTypes.bool,
+  leftArrowWrapperClassName: PropTypes.any,
+  rightArrowWrapperClassName: PropTypes.any,
+  leftArrowRenderer: PropTypes.func,
+  rightArrowRenderer: PropTypes.func,
 };
 
 ScrollSection.defaultProps = {
   cells: [],
+  columnWidths: [],
   onScroll: () => {},
   registerScrollSectionElements: () => {},
-  showScrollIndicators: true,
+  showScrollArrows: true,
+  leftArrowWrapperClassName: '',
+  rightArrowWrapperClassName: '',
+  leftArrowRenderer: () => {},
+  rightArrowRenderer: () => {},
 };
 
 export default ScrollSection;

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ScrollContext from '../ScrollContext';
+import {
+  getColumnWidthRanges,
+  findColumnWidthRange,
+} from '../../utils/columnUtils';
 
 const defaultStyle = {
   display: 'flex',
@@ -10,43 +14,71 @@ const defaultStyle = {
 class Table extends Component {
   scrollSectionElements = new Map();
 
-  handleOnScroll = scrollValues => {
-    const { scrollLeft } = scrollValues;
+  handleOnScrollRow = ({ columnWidths = [], scrollValues, direction }) => {
+    if (direction === 'right') {
+      this.handleScrollRight({ columnWidths, scrollValues });
+    } else {
+      this.handleScrollLeft({ columnWidths, scrollValues });
+    }
+  };
 
+  handleScrollRight = ({ columnWidths, scrollValues }) => {
+    const { hScrollOffset } = this.props;
+    const { clientWidth, scrollLeft } = scrollValues;
+    const scrollLeftDisplacement = clientWidth + scrollLeft;
+    const columnRanges = getColumnWidthRanges(columnWidths);
+    const nextColumnToScroll = findColumnWidthRange(
+      scrollLeftDisplacement,
+      columnRanges,
+      hScrollOffset,
+      'right'
+    );
+
+    if (nextColumnToScroll.range) {
+      const rangeCeil = nextColumnToScroll.range[1];
+      const nextColumnOverflowWidth = Math.abs(
+        rangeCeil - scrollLeftDisplacement
+      );
+      const offsetAmountUntilCurrentColumn =
+        hScrollOffset * (nextColumnToScroll.column + 1);
+      const scrollAccumulator =
+        scrollLeft + nextColumnOverflowWidth + offsetAmountUntilCurrentColumn;
+
+      this.scrollRows(scrollAccumulator);
+    }
+  };
+
+  handleScrollLeft = ({ columnWidths, scrollValues }) => {
+    const { hScrollOffset } = this.props;
+    const { scrollLeft } = scrollValues;
+    const columnRanges = getColumnWidthRanges(columnWidths);
+    const prevColumnToScroll = findColumnWidthRange(
+      scrollLeft,
+      columnRanges,
+      hScrollOffset,
+      'left'
+    );
+
+    if (prevColumnToScroll.range) {
+      const rangeFloor = prevColumnToScroll.range[0];
+      const prevColumnOverflowWidth = Math.abs(rangeFloor - scrollLeft);
+      const offsetAmountUntilCurrentColumn =
+        hScrollOffset * (prevColumnToScroll.column + 1);
+      const scrollAccumulator =
+        scrollLeft - prevColumnOverflowWidth + offsetAmountUntilCurrentColumn;
+
+      return this.scrollRows(scrollAccumulator);
+    }
+  };
+
+  scrollRows(scrollLeft) {
     this.scrollSectionElements.forEach(scrollSectionElement => {
-      const { scrollableArea } = scrollSectionElement;
+      const { scrollableArea, updateScrollArrows } = scrollSectionElement;
 
       scrollableArea.scrollLeft(scrollLeft);
+      updateScrollArrows();
     });
-
-    this.shouldShowScrollIndicators(scrollValues);
-  };
-
-  shouldShowScrollIndicators = scrollValues => {
-    const { clientWidth, scrollWidth, left } = scrollValues;
-
-    this.scrollSectionElements.forEach(scrollSectionElement => {
-      const {
-        scrollRightIndicator,
-        scrollLeftIndicator,
-      } = scrollSectionElement;
-      const shouldShowIndicators = scrollWidth > clientWidth;
-      const shouldShowRightIndicator = left < 1;
-      const shouldShowLeftIndicator = left > 0;
-
-      if (shouldShowIndicators && shouldShowRightIndicator) {
-        scrollRightIndicator.style.display = 'block';
-      } else {
-        scrollRightIndicator.style.display = 'none';
-      }
-
-      if (shouldShowIndicators && shouldShowLeftIndicator) {
-        scrollLeftIndicator.style.display = 'block';
-      } else {
-        scrollLeftIndicator.style.display = 'none';
-      }
-    });
-  };
+  }
 
   registerScrollSectionElements = (rowId, elements) => {
     if (!this.scrollSectionElements.has(rowId)) {
@@ -61,7 +93,7 @@ class Table extends Component {
       <div className={className} style={defaultStyle}>
         <ScrollContext.Provider
           value={{
-            handleOnScroll: this.handleOnScroll,
+            onScrollRow: this.handleOnScrollRow,
             registerScrollSectionElements: this.registerScrollSectionElements,
           }}>
           {children}
@@ -73,10 +105,16 @@ class Table extends Component {
 
 Table.propTypes = {
   className: PropTypes.any,
+  hScrollOffset: PropTypes.number,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+};
+
+Table.defaultProps = {
+  className: '',
+  hScrollOffset: 0,
 };
 
 export default Table;

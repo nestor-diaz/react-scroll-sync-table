@@ -2,6 +2,7 @@
 
 exports[`Table should render its default content with one single child 1`] = `
 <div
+  className=""
   style={
     Object {
       "display": "flex",
@@ -12,7 +13,7 @@ exports[`Table should render its default content with one single child 1`] = `
   <ContextProvider
     value={
       Object {
-        "handleOnScroll": [Function],
+        "onScrollRow": [Function],
         "registerScrollSectionElements": [Function],
       }
     }
@@ -21,8 +22,12 @@ exports[`Table should render its default content with one single child 1`] = `
       cellClassName=""
       className=""
       columns={Array []}
+      leftArrowRenderer={[Function]}
+      leftArrowWrapperClassName=""
+      rightArrowRenderer={[Function]}
+      rightArrowWrapperClassName=""
       rowData={Object {}}
-      showScrollIndicators={true}
+      showScrollArrows={true}
     />
   </ContextProvider>
 </div>
@@ -30,6 +35,7 @@ exports[`Table should render its default content with one single child 1`] = `
 
 exports[`Table should render the given children 1`] = `
 <div
+  className=""
   style={
     Object {
       "display": "flex",
@@ -40,7 +46,7 @@ exports[`Table should render the given children 1`] = `
   <ContextProvider
     value={
       Object {
-        "handleOnScroll": [Function],
+        "onScrollRow": [Function],
         "registerScrollSectionElements": [Function],
       }
     }
@@ -49,22 +55,34 @@ exports[`Table should render the given children 1`] = `
       cellClassName=""
       className=""
       columns={Array []}
+      leftArrowRenderer={[Function]}
+      leftArrowWrapperClassName=""
+      rightArrowRenderer={[Function]}
+      rightArrowWrapperClassName=""
       rowData={Object {}}
-      showScrollIndicators={true}
+      showScrollArrows={true}
     />
     <Row
       cellClassName=""
       className=""
       columns={Array []}
+      leftArrowRenderer={[Function]}
+      leftArrowWrapperClassName=""
+      rightArrowRenderer={[Function]}
+      rightArrowWrapperClassName=""
       rowData={Object {}}
-      showScrollIndicators={true}
+      showScrollArrows={true}
     />
     <Row
       cellClassName=""
       className=""
       columns={Array []}
+      leftArrowRenderer={[Function]}
+      leftArrowWrapperClassName=""
+      rightArrowRenderer={[Function]}
+      rightArrowWrapperClassName=""
       rowData={Object {}}
-      showScrollIndicators={true}
+      showScrollArrows={true}
     />
   </ContextProvider>
 </div>

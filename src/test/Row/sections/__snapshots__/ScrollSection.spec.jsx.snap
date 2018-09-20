@@ -2,9 +2,6 @@
 
 exports[`ScrollSection should render its default content 1`] = `
 <div
-  id="scrollable-wrapper"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
   style={
     Object {
       "flex": "1 1 auto",
@@ -12,30 +9,6 @@ exports[`ScrollSection should render its default content 1`] = `
     }
   }
 >
-  <div
-    style={
-      Object {
-        "backgroundImage": "linear-gradient(to right, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))",
-        "display": "none",
-        "height": "100%",
-        "position": "absolute",
-        "right": 0,
-        "width": "20px",
-      }
-    }
-  />
-  <div
-    style={
-      Object {
-        "backgroundImage": "linear-gradient(to left, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))",
-        "display": "none",
-        "height": "100%",
-        "left": 0,
-        "position": "absolute",
-        "width": "20px",
-      }
-    }
-  />
   <Scrollbars
     autoHeight={false}
     autoHeightMax={200}
@@ -44,7 +17,6 @@ exports[`ScrollSection should render its default content 1`] = `
     autoHideDuration={200}
     autoHideTimeout={1000}
     hideTracksWhenNotNeeded={false}
-    onScroll={[Function]}
     renderThumbHorizontal={[Function]}
     renderThumbVertical={[Function]}
     renderTrackHorizontal={[Function]}
@@ -59,9 +31,6 @@ exports[`ScrollSection should render its default content 1`] = `
 
 exports[`ScrollSection should render the given cells 1`] = `
 <div
-  id="scrollable-wrapper"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
   style={
     Object {
       "flex": "1 1 auto",
@@ -69,30 +38,6 @@ exports[`ScrollSection should render the given cells 1`] = `
     }
   }
 >
-  <div
-    style={
-      Object {
-        "backgroundImage": "linear-gradient(to right, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))",
-        "display": "none",
-        "height": "100%",
-        "position": "absolute",
-        "right": 0,
-        "width": "20px",
-      }
-    }
-  />
-  <div
-    style={
-      Object {
-        "backgroundImage": "linear-gradient(to left, rgba(202, 203, 204, 0), rgba(202, 203, 204, 1))",
-        "display": "none",
-        "height": "100%",
-        "left": 0,
-        "position": "absolute",
-        "width": "20px",
-      }
-    }
-  />
   <Scrollbars
     autoHeight={false}
     autoHeightMax={200}
@@ -101,7 +46,81 @@ exports[`ScrollSection should render the given cells 1`] = `
     autoHideDuration={200}
     autoHideTimeout={1000}
     hideTracksWhenNotNeeded={false}
-    onScroll={[Function]}
+    renderThumbHorizontal={[Function]}
+    renderThumbVertical={[Function]}
+    renderTrackHorizontal={[Function]}
+    renderTrackVertical={[Function]}
+    renderView={[Function]}
+    tagName="div"
+    thumbMinSize={30}
+    universal={false}
+  >
+    <div
+      key="0"
+    >
+      Cell A
+    </div>
+    <div
+      key="1"
+    >
+      Cell B
+    </div>
+    <div
+      key="2"
+    >
+      Cell C
+    </div>
+  </Scrollbars>
+</div>
+`;
+
+exports[`ScrollSection should render the scroll arrows when the section is scrollable 1`] = `
+<div
+  style={
+    Object {
+      "flex": "1 1 auto",
+      "position": "relative",
+    }
+  }
+>
+  <div
+    className=""
+    style={
+      Object {
+        "height": "100%",
+        "left": 0,
+        "position": "absolute",
+      }
+    }
+  >
+    <div
+      id="scrollLeft"
+      onClick={[Function]}
+    />
+  </div>
+  <div
+    className=""
+    style={
+      Object {
+        "height": "100%",
+        "position": "absolute",
+        "right": 0,
+      }
+    }
+  >
+    <div
+      id="scrollRight"
+      onClick={[Function]}
+    />
+  </div>
+  <Scrollbars
+    autoHeight={false}
+    autoHeightMax={200}
+    autoHeightMin={0}
+    autoHide={false}
+    autoHideDuration={200}
+    autoHideTimeout={1000}
+    hideTracksWhenNotNeeded={false}
     renderThumbHorizontal={[Function]}
     renderThumbVertical={[Function]}
     renderTrackHorizontal={[Function]}

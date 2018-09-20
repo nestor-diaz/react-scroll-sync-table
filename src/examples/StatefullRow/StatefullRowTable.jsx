@@ -45,12 +45,12 @@ const columns = [
   },
 ];
 const StatefullTable = () => (
-  <Table className="table">
+  <Table className="table" hScrollOffset={1}>
     <Row
       className="headerRow"
       cellClassName="headerCell"
       columns={columns}
-      showScrollIndicators={false}
+      showScrollArrows={false}
       rowData={{
         columnA: <div>Column A</div>,
         columnB: <div>Column B</div>,

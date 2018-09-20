@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import idGenerator from 'react-id-generator';
+import { extractColumnWidthFromStringValue } from '../../utils/columnUtils';
 import { ScrollSection, RightSection, LeftSection } from './sections';
 import ScrollContext from '../ScrollContext';
 
@@ -19,6 +20,7 @@ class Row extends Component {
     stickRightSection: [],
     stickLeftSection: [],
     scrollSection: [],
+    scrollSectionColumnWidths: [],
   };
 
   constructor(props) {
@@ -31,6 +33,7 @@ class Row extends Component {
     const stickLeftSection = [];
     const stickRightSection = [];
     const scrollSection = [];
+    const scrollSectionColumnWidths = [];
 
     columns.forEach(column => {
       const columnDataKey = column.dataKey;
@@ -41,6 +44,7 @@ class Row extends Component {
           {cellContent}
         </div>
       );
+      const columnWidthInteger = extractColumnWidthFromStringValue(columnWidth);
 
       switch (column.stickAlign) {
         case 'right':
@@ -50,6 +54,7 @@ class Row extends Component {
           stickLeftSection.push(cell);
           break;
         default:
+          scrollSectionColumnWidths.push(columnWidthInteger);
           scrollSection.push(cell);
           break;
       }
@@ -59,25 +64,43 @@ class Row extends Component {
       stickLeftSection,
       stickRightSection,
       scrollSection,
+      scrollSectionColumnWidths,
     };
   }
 
   render() {
-    const { stickLeftSection, stickRightSection, scrollSection } = this.state;
-    const { className, showScrollIndicators } = this.props;
+    const {
+      stickLeftSection,
+      stickRightSection,
+      scrollSection,
+      scrollSectionColumnWidths,
+    } = this.state;
+    const {
+      className,
+      showScrollArrows,
+      leftArrowWrapperClassName,
+      rightArrowWrapperClassName,
+      leftArrowRenderer,
+      rightArrowRenderer,
+    } = this.props;
 
     return (
       <div className={className} style={defaultRowStyle}>
         <LeftSection cells={stickLeftSection} />
         <ScrollContext.Consumer>
-          {({ handleOnScroll, registerScrollSectionElements }) => (
+          {({ registerScrollSectionElements, onScrollRow }) => (
             <ScrollSection
               key={`scrollSection-${this.rowId}`}
               cells={scrollSection}
-              onScroll={handleOnScroll}
+              columnWidths={scrollSectionColumnWidths}
+              onScroll={onScrollRow}
               registerScrollSectionElements={registerScrollSectionElements}
               rowId={this.rowId}
-              showScrollIndicators={showScrollIndicators}
+              showScrollArrows={showScrollArrows}
+              leftArrowWrapperClassName={leftArrowWrapperClassName}
+              rightArrowWrapperClassName={rightArrowWrapperClassName}
+              leftArrowRenderer={leftArrowRenderer}
+              rightArrowRenderer={rightArrowRenderer}
             />
           )}
         </ScrollContext.Consumer>
@@ -97,16 +120,24 @@ Row.propTypes = {
       width: PropTypes.string,
     })
   ),
-  showScrollIndicators: PropTypes.bool,
+  showScrollArrows: PropTypes.bool,
   rowData: PropTypes.object,
+  leftArrowWrapperClassName: PropTypes.any,
+  rightArrowWrapperClassName: PropTypes.any,
+  leftArrowRenderer: PropTypes.func,
+  rightArrowRenderer: PropTypes.func,
 };
 
 Row.defaultProps = {
   className: '',
   cellClassName: '',
   columns: [],
-  showScrollIndicators: true,
+  showScrollArrows: true,
   rowData: {},
+  leftArrowWrapperClassName: '',
+  rightArrowWrapperClassName: '',
+  leftArrowRenderer: () => {},
+  rightArrowRenderer: () => {},
 };
 
 export default Row;
