@@ -34,12 +34,16 @@ describe('ScrollSection', () => {
     const ScrollSectionComponent = mount(
       <ScrollSection cells={cells} onScroll={onScroll} />
     );
+
     ScrollSectionComponent.setState({ shouldShowScrollArrows: true });
 
     const ScrollBars = ScrollSectionComponent.find('#scrollLeft');
+
     ScrollBars.prop('onClick')();
 
-    expect(onScroll).toHaveBeenCalledWith(expect.objectContaining({ direction: 'left' }));
+    expect(onScroll).toHaveBeenCalledWith(
+      expect.objectContaining({ direction: 'left' })
+    );
   });
 
   test('should call the callback when the section is scrolled to the right', () => {
@@ -47,12 +51,16 @@ describe('ScrollSection', () => {
     const ScrollSectionComponent = mount(
       <ScrollSection cells={cells} onScroll={onScroll} />
     );
+
     ScrollSectionComponent.setState({ shouldShowScrollArrows: true });
 
     const ScrollBars = ScrollSectionComponent.find('#scrollRight');
+
     ScrollBars.prop('onClick')();
 
-    expect(onScroll).toHaveBeenCalledWith(expect.objectContaining({ direction: 'right' }));
+    expect(onScroll).toHaveBeenCalledWith(
+      expect.objectContaining({ direction: 'right' })
+    );
   });
 
   test('should register the scroll section when it renders', () => {
