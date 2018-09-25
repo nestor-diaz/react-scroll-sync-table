@@ -97,20 +97,22 @@ class ScrollSection extends PureComponent {
   };
 
   shouldEnableScrollArrows = () => {
-    const {
-      clientWidth,
-      scrollWidth,
-      left,
-    } = this.scrollableAreaRef.getValues();
-    const shouldShowScrollArrows = scrollWidth > clientWidth;
-    const enableLeftScrollArrow = left > 0;
-    const enableRightScrollArrow = left < 1;
+    if (this.scrollableAreaRef) {
+      const {
+        clientWidth,
+        scrollWidth,
+        left,
+      } = this.scrollableAreaRef.getValues();
+      const shouldShowScrollArrows = scrollWidth > clientWidth;
+      const enableLeftScrollArrow = left > 0;
+      const enableRightScrollArrow = left < 1;
 
-    this.setState({
-      shouldShowScrollArrows,
-      enableLeftScrollArrow,
-      enableRightScrollArrow,
-    });
+      this.setState({
+        shouldShowScrollArrows,
+        enableLeftScrollArrow,
+        enableRightScrollArrow,
+      });
+    }
   };
 
   render() {

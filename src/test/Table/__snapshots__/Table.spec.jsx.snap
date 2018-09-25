@@ -1,89 +1,107 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Table should render its default content with one single child 1`] = `
-<div
-  className=""
-  style={
-    Object {
-      "display": "flex",
-      "flexDirection": "column",
-    }
-  }
+<ResizeDetector
+  handleHeight={true}
+  handleWidth={true}
+  onResize={[Function]}
+  refreshRate={1000}
+  resizableElementId=""
+  skipOnMount={false}
 >
-  <ContextProvider
-    value={
+  <div
+    className=""
+    style={
       Object {
-        "onScrollRow": [Function],
-        "registerScrollSectionElements": [Function],
+        "display": "flex",
+        "flexDirection": "column",
       }
     }
   >
-    <Row
-      cellClassName=""
-      className=""
-      columns={Array []}
-      leftArrowRenderer={[Function]}
-      leftArrowWrapperClassName=""
-      rightArrowRenderer={[Function]}
-      rightArrowWrapperClassName=""
-      rowData={Object {}}
-      showScrollArrows={true}
-    />
-  </ContextProvider>
-</div>
+    <ContextProvider
+      value={
+        Object {
+          "onScrollRow": [Function],
+          "registerScrollSectionElements": [Function],
+        }
+      }
+    >
+      <Row
+        cellClassName=""
+        className=""
+        columns={Array []}
+        leftArrowRenderer={[Function]}
+        leftArrowWrapperClassName=""
+        rightArrowRenderer={[Function]}
+        rightArrowWrapperClassName=""
+        rowData={Object {}}
+        showScrollArrows={true}
+      />
+    </ContextProvider>
+  </div>
+</ResizeDetector>
 `;
 
 exports[`Table should render the given children 1`] = `
-<div
-  className=""
-  style={
-    Object {
-      "display": "flex",
-      "flexDirection": "column",
-    }
-  }
+<ResizeDetector
+  handleHeight={true}
+  handleWidth={true}
+  onResize={[Function]}
+  refreshRate={1000}
+  resizableElementId=""
+  skipOnMount={false}
 >
-  <ContextProvider
-    value={
+  <div
+    className=""
+    style={
       Object {
-        "onScrollRow": [Function],
-        "registerScrollSectionElements": [Function],
+        "display": "flex",
+        "flexDirection": "column",
       }
     }
   >
-    <Row
-      cellClassName=""
-      className=""
-      columns={Array []}
-      leftArrowRenderer={[Function]}
-      leftArrowWrapperClassName=""
-      rightArrowRenderer={[Function]}
-      rightArrowWrapperClassName=""
-      rowData={Object {}}
-      showScrollArrows={true}
-    />
-    <Row
-      cellClassName=""
-      className=""
-      columns={Array []}
-      leftArrowRenderer={[Function]}
-      leftArrowWrapperClassName=""
-      rightArrowRenderer={[Function]}
-      rightArrowWrapperClassName=""
-      rowData={Object {}}
-      showScrollArrows={true}
-    />
-    <Row
-      cellClassName=""
-      className=""
-      columns={Array []}
-      leftArrowRenderer={[Function]}
-      leftArrowWrapperClassName=""
-      rightArrowRenderer={[Function]}
-      rightArrowWrapperClassName=""
-      rowData={Object {}}
-      showScrollArrows={true}
-    />
-  </ContextProvider>
-</div>
+    <ContextProvider
+      value={
+        Object {
+          "onScrollRow": [Function],
+          "registerScrollSectionElements": [Function],
+        }
+      }
+    >
+      <Row
+        cellClassName=""
+        className=""
+        columns={Array []}
+        leftArrowRenderer={[Function]}
+        leftArrowWrapperClassName=""
+        rightArrowRenderer={[Function]}
+        rightArrowWrapperClassName=""
+        rowData={Object {}}
+        showScrollArrows={true}
+      />
+      <Row
+        cellClassName=""
+        className=""
+        columns={Array []}
+        leftArrowRenderer={[Function]}
+        leftArrowWrapperClassName=""
+        rightArrowRenderer={[Function]}
+        rightArrowWrapperClassName=""
+        rowData={Object {}}
+        showScrollArrows={true}
+      />
+      <Row
+        cellClassName=""
+        className=""
+        columns={Array []}
+        leftArrowRenderer={[Function]}
+        leftArrowWrapperClassName=""
+        rightArrowRenderer={[Function]}
+        rightArrowWrapperClassName=""
+        rowData={Object {}}
+        showScrollArrows={true}
+      />
+    </ContextProvider>
+  </div>
+</ResizeDetector>
 `;

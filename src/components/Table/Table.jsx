@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ReactResizeDetector from 'react-resize-detector';
 import ScrollContext from '../ScrollContext';
 import {
   getColumnWidthRanges,
@@ -71,14 +72,14 @@ class Table extends Component {
     }
   };
 
-  scrollRows(scrollLeft) {
+  scrollRows = scrollLeft => {
     this.scrollSectionElements.forEach(scrollSectionElement => {
       const { scrollableArea, updateScrollArrows } = scrollSectionElement;
 
       scrollableArea.scrollLeft(scrollLeft);
       updateScrollArrows();
     });
-  }
+  };
 
   registerScrollSectionElements = (rowId, elements) => {
     if (!this.scrollSectionElements.has(rowId)) {
@@ -86,19 +87,32 @@ class Table extends Component {
     }
   };
 
+  handleOnResize = () => {
+    this.scrollSectionElements.forEach(scrollSectionElement => {
+      const { updateScrollArrows } = scrollSectionElement;
+
+      updateScrollArrows();
+    });
+  };
+
   render() {
     const { children, className } = this.props;
 
     return (
-      <div className={className} style={defaultStyle}>
-        <ScrollContext.Provider
-          value={{
-            onScrollRow: this.handleOnScrollRow,
-            registerScrollSectionElements: this.registerScrollSectionElements,
-          }}>
-          {children}
-        </ScrollContext.Provider>
-      </div>
+      <ReactResizeDetector
+        handleWidth
+        handleHeight
+        onResize={this.handleOnResize}>
+        <div className={className} style={defaultStyle}>
+          <ScrollContext.Provider
+            value={{
+              onScrollRow: this.handleOnScrollRow,
+              registerScrollSectionElements: this.registerScrollSectionElements,
+            }}>
+            {children}
+          </ScrollContext.Provider>
+        </div>
+      </ReactResizeDetector>
     );
   }
 }
