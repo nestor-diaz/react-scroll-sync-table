@@ -1,6 +1,6 @@
 {
   "name": "react-scroll-sync-table",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A table with synced horizontal scroll made with React",
   "repository": "ndiaz-candido/react-scroll-sync-table",
   "main": "build/index.js",
